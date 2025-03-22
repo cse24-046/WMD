@@ -27,6 +27,8 @@
             background-position: center;
             backdrop-filter: blur(8px); /* Blur the background */
             min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* Allow sections to stack vertically */
             padding-top: 60px; /* Add space for fixed header */
         }
 
@@ -116,11 +118,21 @@
             color: #ff8c00; /* Highlight color on hover */
         }
 
+        /* Main Content Section */
+        main {
+            flex: 1; /* Allow main content to take up remaining space */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
         /* Section Styling */
         section {
+            flex: 1; /* Make each section fill the remaining space */
             padding: 50px 20px;
         }
 
+        /* Section Headers */
         h2 {
             color: #ff8c00;
             font-size: 24px;
@@ -128,6 +140,7 @@
             text-align: center;
         }
 
+        /* Grid Layout for Items */
         .promotions-grid,
         .sales-grid,
         .popular-novels-grid,
@@ -138,6 +151,7 @@
             justify-items: center;
         }
 
+        /* Item Styling */
         .promo-item,
         .sale-item,
         .novel-item,
@@ -155,7 +169,7 @@
             text-align: center;
             padding: 15px;
             background-color: rgba(0, 0, 0, 0.8);
-            position: fixed;
+            position: relative;
             bottom: 0;
             left: 0;
             right: 0;
@@ -226,6 +240,7 @@
                 <div class="novel-item">Novel 4</div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer Section -->
