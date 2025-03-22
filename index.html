@@ -5,7 +5,170 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Noveleer - Bookstore</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: #f5f5f5;
+            background-image: url('bookshelf.jpg'); /* Add your bookshelf image here */
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(8px); /* Blur the background */
+            min-height: 100vh;
+            padding-top: 60px; /* Add space for fixed header */
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            z-index: 10;
+        }
+
+        .logo h1 a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .search-bar button {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+        }
+
+        .cart-icon a {
+            display: block;
+            width: 24px;
+            height: 24px;
+            background-color: #000;
+            mask: url('cart-icon.svg') no-repeat center center;
+            -webkit-mask: url('cart-icon.svg') no-repeat center center;
+            background-color: #fff;
+        }
+
+        /* Navigation Styling */
+        nav {
+            margin-top: 100px; /* Adjust for fixed header */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00; /* Highlight color on hover */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 50px 20px;
+        }
+
+        h2 {
+            color: #ff8c00;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .promotions-grid,
+        .sales-grid,
+        .popular-novels-grid,
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            justify-items: center;
+        }
+
+        .promo-item,
+        .sale-item,
+        .novel-item,
+        .category-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 18px;
+            color: #f5f5f5;
+        }
+
+        /* Category Item Phrases */
+        .category-item p {
+            font-size: 14px;
+            font-style: italic;
+            color: #ff8c00;
+            margin-top: 10px;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer p {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,7 +182,7 @@
             <button type="button">Search</button>
         </div>
         <div class="cart-icon">
-            <a href="cart.html">🛒</a>
+            <a href="cart.html"></a> <!-- Cart icon as a link -->
         </div>
     </header>
 
@@ -71,15 +234,42 @@
         <section class="book-categories">
             <h2>Book Categories</h2>
             <div class="category-grid">
-                <div class="category-item">Documentaries</div>
-                <div class="category-item">Thriller</div>
-                <div class="category-item">Fantasy</div>
-                <div class="category-item">Mystery</div>
-                <div class="category-item">Sci-Fi</div>
-                <div class="category-item">Self Development</div>
-                <div class="category-item">Horror</div>
-                <div class="category-item">Drama</div>
-                <div class="category-item">Romance</div>
+                <div class="category-item">
+                    <div>Documentaries</div>
+                    <p>Explore real-world stories that will open your eyes to the wonders of life.</p>
+                </div>
+                <div class="category-item">
+                    <div>Thriller</div>
+                    <p>Feel the suspense with every turn of the page. Thrills await!</p>
+                </div>
+                <div class="category-item">
+                    <div>Fantasy</div>
+                    <p>Step into worlds beyond imagination. Adventure is calling.</p>
+                </div>
+                <div class="category-item">
+                    <div>Mystery</div>
+                    <p>Unravel mysteries, solve puzzles, and uncover hidden truths.</p>
+                </div>
+                <div class="category-item">
+                    <div>Sci-Fi</div>
+                    <p>Venture into the future with groundbreaking visions of what's to come.</p>
+                </div>
+                <div class="category-item">
+                    <div>Self Development</div>
+                    <p>Empower yourself with knowledge that transforms your life.</p>
+                </div>
+                <div class="category-item">
+                    <div>Horror</div>
+                    <p>Face your fears and dive into tales that will chill you to the bone.</p>
+                </div>
+                <div class="category-item">
+                    <div>Drama</div>
+                    <p>Explore the raw emotions and intense stories that tug at your heart.</p>
+                </div>
+                <div class="category-item">
+                    <div>Romance</div>
+                    <p>Fall in love with characters who make your heart skip a beat.</p>
+                </div>
             </div>
         </section>
     </main>
