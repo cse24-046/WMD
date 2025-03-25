@@ -70,11 +70,59 @@
             color: #e1e1e1;
         }
 
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controls button {
+            background-color: #f39c12;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background-color: #e67e22;
+        }
+
+        .remove-btn {
+            background-color: red;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #e74c3c;
+        }
+
         .total {
             font-size: 1.5em;
             font-weight: bold;
             color: #f39c12;
             text-align: center;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .checkout-btn:hover {
+            background-color: #2ecc71;
         }
     </style>
 </head>
@@ -91,6 +139,8 @@
         <div class="total" id="totalAmount">
             Total: P 0.00
         </div>
+
+        <button class="checkout-btn" id="checkoutButton">Checkout</button>
     </div>
 
     <script>
@@ -102,24 +152,56 @@
             cartList.innerHTML = ''; // Clear the cart list
 
             let total = 0;
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
                     <img src="${item.image}" alt="${item.name}">
                     <div class="cart-info">
                         <h3>${item.name}</h3>
-                        <p class="price">${item.price}</p>
+                        <p class="price">P ${item.price}</p>
+                        <div class="controls">
+                            <button class="increase-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                            <p>Quantity: ${item.quantity}</p>
+                            <button class="decrease-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                        </div>
                     </div>
                 `;
                 cartList.appendChild(listItem);
 
                 // Convert price to number and add to total
-                total += parseFloat(item.price.replace('P ', '').replace(',', ''));
+                total += parseFloat(item.price.replace('P ', '').replace(',', '')) * item.quantity;
             });
 
             // Update total price display
             totalAmount.innerText = `Total: P ${total.toFixed(2)}`;
         }
+
+        function updateQuantity(index, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart[index];
+
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                item.quantity = 1;
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart(); // Re-render the cart with updated quantity
+        }
+
+        function removeItem(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove item from cart array
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart(); // Re-render the cart after removal
+        }
+
+        // Checkout button function (basic placeholder)
+        document.getElementById('checkoutButton').addEventListener('click', () => {
+            alert('Proceeding to checkout...');
+            // You can redirect to another page or handle checkout logic here.
+        });
 
         // Call displayCart function when the page loads
         displayCart();
