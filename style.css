@@ -11,40 +11,4 @@ body {
     flex-direction: column; /* Allow sections to stack vertically */
     padding-top: 60px; /* Add space for fixed header */
 }
-        /* Header Styling */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-            z-index: 10;
-        }
-      * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-      
-          body {
-            font-family: Arial, sans-serif;
-            background-color: #222222;
-            color: #e0e0e0;
-          }
-      
-          header {
-            background-color: #111111;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
-      
-          header .logo h1 {
-            color: #e0e0e0;
-            font-size: 2rem;
-          }
+
