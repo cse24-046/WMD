@@ -26,12 +26,36 @@
         .novel-list {
             list-style: none;
             padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
         .novel-list li {
             background-color: #444;
-            margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
+            text-align: center;
+        }
+        .novel-list img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .novel-info {
+            margin-top: 10px;
+        }
+        .novel-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .novel-info p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+        .price {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #f39c12;
         }
         .pagination {
             text-align: center;
@@ -59,12 +83,36 @@
     </nav>
     <div class="container">
         <ul class="novel-list">
-            <!-- Example novel list items (you can add more here) -->
-            <li>Documentary Novel 1</li>
-            <li>Documentary Novel 2</li>
-            <li>Documentary Novel 3</li>
-            <li>Documentary Novel 4</li>
-            <!-- Add more up to 50 novels -->
+            <!-- Example novel list items with images and prices -->
+            <li>
+                <img src="novel1.jpg" alt="Documentary Novel 1">
+                <div class="novel-info">
+                    <h3>Documentary Novel 1</h3>
+                    <p class="price">P 150.00</p>
+                </div>
+            </li>
+            <li>
+                <img src="novel2.jpg" alt="Documentary Novel 2">
+                <div class="novel-info">
+                    <h3>Documentary Novel 2</h3>
+                    <p class="price">P 200.00</p>
+                </div>
+            </li>
+            <li>
+                <img src="novel3.jpg" alt="Documentary Novel 3">
+                <div class="novel-info">
+                    <h3>Documentary Novel 3</h3>
+                    <p class="price">P 180.00</p>
+                </div>
+            </li>
+            <li>
+                <img src="novel4.jpg" alt="Documentary Novel 4">
+                <div class="novel-info">
+                    <h3>Documentary Novel 4</h3>
+                    <p class="price">P 220.00</p>
+                </div>
+            </li>
+            <!-- Add more novels with images and prices -->
         </ul>
 
         <!-- Pagination Section -->
