@@ -1,230 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOVELEER - Cart</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e1e1e1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    header .logo h1 {
-      color: #e0e0e0;
-      font-size: 2rem;
-    }
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
-    nav ul li {
-      margin-left: 20px;
-    }
+        .container {
+            padding: 20px;
+        }
 
-    nav ul li a {
-      color: #e0e0e0;
-      text-decoration: none;
-      font-size: 1rem;
-    }
+        .cart-list {
+            list-style: none;
+            padding: 0;
+        }
 
-    nav ul li a:hover {
-      color: #f1f1f1;
-    }
+        .cart-list li {
+            background-color: #444;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-    main {
-      padding: 40px 10%;
-    }
+        .cart-list img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
 
-    .cart-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      background-color: #333333;
-      border-radius: 10px;
-      padding: 20px;
-    }
+        .cart-info {
+            flex-grow: 1;
+            padding-left: 15px;
+        }
 
-    .cart-item {
-      background-color: #444444;
-      padding: 15px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+        .cart-info h3 {
+            font-size: 1.2em;
+            color: #f39c12;
+        }
 
-    .cart-item img {
-      width: 150px;
-      height: 225px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
+        .cart-info p {
+            color: #e1e1e1;
+        }
 
-    .item-info h3 {
-      font-size: 1.2rem;
-      color: #f1f1f1;
-    }
-
-    .item-info p {
-      font-size: 1rem;
-    }
-
-    .item-actions {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .item-actions button {
-      background-color: #555555;
-      color: #f1f1f1;
-      border: none;
-      padding: 5px 10px;
-      margin: 0 5px;
-      cursor: pointer;
-    }
-
-    .item-actions button:hover {
-      background-color: #666666;
-    }
-
-    .remove-btn {
-      background-color: #d9534f;
-    }
-
-    .remove-btn:hover {
-      background-color: #c9302c;
-    }
-
-    .cart-summary {
-      margin-top: 30px;
-      background-color: #444444;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-    }
-
-    .total {
-      font-weight: bold;
-    }
-
-    .checkout-btn {
-      width: 100%;
-      padding: 15px;
-      background-color: #888888;
-      color: #f1f1f1;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    .checkout-btn:hover {
-      background-color: #777777;
-    }
-
-    footer {
-      background-color: #111111;
-      text-align: center;
-      padding: 10px;
-      color: #e0e0e0;
-    }
-  </style>
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f39c12;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Your Cart</h1>
+    </header>
 
-  <header>
-    <div class="logo">
-      <h1>NOVELEER</h1>
-    </div>
-  </header>
+    <div class="container">
+        <ul class="cart-list" id="cartList">
+            <!-- Cart items will be inserted dynamically -->
+        </ul>
 
-  <main>
-    <div class="cart-container" id="cart-container">
-      <!-- Cart items will be dynamically inserted here -->
-    </div>
-
-    <div class="cart-summary" id="cart-summary">
-      <!-- Cart summary will be inserted here -->
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 NOVELEER. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    // Function to update the cart
-    function updateCart() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const cartContainer = document.getElementById('cart-container');
-      const cartSummary = document.getElementById('cart-summary');
-
-      // Clear the container before adding new items
-      cartContainer.innerHTML = '';
-
-      let subtotal = 0;
-
-      // Loop through cart items and add them to the page
-      cart.forEach((item, index) => {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        cartItem.innerHTML = `
-          <img src="${item.image}" alt="${item.name}">
-          <div class="item-info">
-            <h3>${item.name}</h3>
-            <p>Price: P${item.price}</p>
-          </div>
-          <div class="item-actions">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-          </div>
-        `;
-
-        // Update subtotal
-        subtotal += parseFloat(item.price);
-
-        // Add item to cart container
-        cartContainer.appendChild(cartItem);
-      });
-
-      // Cart summary
-      cartSummary.innerHTML = `
-        <div class="summary-item">
-          <p>Subtotal:</p>
-          <p>P${subtotal.toFixed(2)}</p>
+        <div class="total" id="totalAmount">
+            Total: P 0.00
         </div>
-        <div class="summary-item">
-          <p>Shipping:</p>
-          <p>Free</p>
-        </div>
-        <div class="summary-item total">
-          <p>Total:</p>
-          <p>P${subtotal.toFixed(2)}</p>
-        </div>
-        <button class="checkout-btn">Proceed to Checkout</button>
-      `;
-    }
+    </div>
 
-    // Function to remove an item from the cart
-    function removeItem(index) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.splice(index, 1); // Remove the item at the specified index
-      localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart
-      updateCart(); // Refresh the cart display
-    }
+    <script>
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartList = document.getElementById('cartList');
+            const totalAmount = document.getElementById('totalAmount');
 
-    // Initialize the cart display
-    updateCart();
-  </script>
+            cartList.innerHTML = ''; // Clear the cart list
 
+            let total = 0;
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-info">
+                        <h3>${item.name}</h3>
+                        <p class="price">${item.price}</p>
+                    </div>
+                `;
+                cartList.appendChild(listItem);
+
+                // Convert price to number and add to total
+                total += parseFloat(item.price.replace('P ', '').replace(',', ''));
+            });
+
+            // Update total price display
+            totalAmount.innerText = `Total: P ${total.toFixed(2)}`;
+        }
+
+        // Call displayCart function when the page loads
+        displayCart();
+    </script>
 </body>
 </html>

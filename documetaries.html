@@ -107,10 +107,14 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 380px; /* Ensures all items have the same height */
         }
 
-        .novel-list li:hover {
-            transform: translateY(-10px);
+        .novel-info {
+            flex-grow: 1; /* Ensures the information section takes the available space */
         }
 
         .novel-list img {
@@ -121,12 +125,12 @@
             transition: transform 0.3s ease;
         }
 
-        .novel-list li:hover img {
-            transform: scale(1.05);
+        .novel-list li:hover {
+            transform: translateY(-10px);
         }
 
-        .novel-info {
-            margin-top: 15px;
+        .novel-list li:hover img {
+            transform: scale(1.05);
         }
 
         .novel-info h3 {
@@ -272,6 +276,7 @@
                         <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
                     </div>
                 `;
+                listItem.querySelector('.add-to-cart').addEventListener('click', addToCart);
                 list.appendChild(listItem);
             });
 
@@ -311,11 +316,32 @@
                         <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
                     </div>
                 `;
+                listItem.querySelector('.add-to-cart').addEventListener('click', addToCart);
                 list.appendChild(listItem);
             });
         }
 
-        // Initialize the page with the first batch of documentaries
+        // Function to handle the "Add to Cart" button click
+        function addToCart(event) {
+            const button = event.target;
+            const name = button.getAttribute('data-name');
+            const price = button.getAttribute('data-price');
+            const image = button.getAttribute('data-image');
+
+            // Retrieve the current cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the selected documentary to the cart
+            cart.push({ name, price, image });
+
+            // Store the updated cart back into localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Optionally, alert the user or show a notification
+            alert(`${name} has been added to your cart!`);
+        }
+
+        // Initialize the documentaries list on page load
         displayDocumentaries(currentPage);
     </script>
 </body>
