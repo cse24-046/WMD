@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentaries</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cart</title>
     <style>
         body {
             background-color: #121212;
@@ -18,305 +17,79 @@
             background-color: #333;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
             color: #f39c12;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
         }
 
-        nav {
+        .cart-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cart-item {
             background-color: #444;
             padding: 15px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-
-        nav ul li a:hover {
-            color: #f39c12;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .search-box {
-            margin-bottom: 30px;
-            text-align: center;
+            margin: 10px;
+            border-radius: 8px;
             display: flex;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-between;
+            width: 80%;
         }
 
-        .search-box input {
-            padding: 12px;
-            width: 50%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #222;
-            color: #e1e1e1;
-            font-size: 1.1em;
-        }
-
-        .search-box button {
-            padding: 12px 20px;
-            background-color: #f39c12;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 1.1em;
-            cursor: pointer;
-        }
-
-        .search-box button:hover {
-            background-color: #e67e22;
-        }
-
-        .novel-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            justify-items: center;
-        }
-
-        .novel-list li {
-            background-color: #444;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .novel-list li:hover {
-            transform: translateY(-10px);
-        }
-
-        .novel-list img {
-            width: 100%;
-            height: 250px;
+        .cart-item img {
+            width: 100px;
+            height: 100px;
             object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .novel-list li:hover img {
-            transform: scale(1.05);
-        }
-
-        .novel-info {
-            margin-top: 15px;
-        }
-
-        .novel-info h3 {
-            margin: 0;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #f39c12;
-        }
-
-        .novel-info p {
-            margin: 5px 0;
-            font-size: 1.1em;
-            color: #e1e1e1;
-        }
-
-        .price {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #f39c12;
-        }
-
-        .add-to-cart {
-            background-color: #f39c12;
-            color: white;
-            padding: 10px 25px;
-            border: none;
             border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-size: 1.1em;
         }
 
-        .add-to-cart:hover {
-            background-color: #e67e22;
+        .cart-item-details {
+            flex-grow: 1;
+            padding-left: 10px;
         }
 
-        .pagination {
-            text-align: center;
-            margin-top: 40px;
+        .cart-item h3 {
+            color: #f39c12;
         }
 
-        .pagination a {
+        .cart-item p {
             color: #bbb;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-
-        .pagination a:hover {
-            color: #fff;
-        }
-
-        /* Responsive design */
-        @media (max-width: 1024px) {
-            .novel-list {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .novel-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .novel-list {
-                grid-template-columns: 1fr;
-            }
-
-            .search-box input {
-                width: 80%;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Documentaries</h1>
+        <h1>Your Cart</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><button onclick="window.history.back();" style="background-color: #444; color: white; border: none; padding: 10px 20px; cursor: pointer;">Back</button></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <!-- Search Box -->
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search documentaries..." />
-            <button onclick="searchDocumentaries()">Search</button>
-        </div>
-
-        <!-- Documentaries List -->
-        <ul class="novel-list" id="novelList">
-            <!-- Documentaries will be inserted dynamically -->
-        </ul>
-
-        <!-- Pagination Section -->
-        <div class="pagination">
-            <a href="#" id="prevPage" onclick="changePage(-1)">« Previous</a>
-            <a href="#" id="nextPage" onclick="changePage(1)">Next »</a>
-        </div>
+    <div class="cart-container" id="cartContainer">
+        <!-- Cart items will be inserted here -->
     </div>
 
     <script>
-        const documentaries = [
-            { name: 'THE FLAMES OF ROME', price: 'P 150.00', image: 'https://static.tvtropes.org/pmwiki/pub/images/2688639.jpg' },
-            { name: 'THE ACT OF KILLING', price: 'P 200.00', image: 'https://preview.redd.it/favorite-documentary-films-v0-dd0nl88857be1.jpg?width=640&crop=smart&auto=webp&s=bf95606056cf2ff84fa40f7841c6ffb36585a60e' },
-            { name: 'A DANGEROUS BUSINESS', price: 'P 180.00', image: 'https://media.npr.org/assets/img/2022/12/12/9780525520337_custom-9d4a6e93e8334c8eb9e2386cd13020fd7530e037.jpg' },
-            { name: 'SUBJECT TO REALITY', price: 'P 220.00', image: 'https://m.media-amazon.com/images/I/517OzO1YNxL._SL500_.jpg' },
-            { name: 'LOVING VS VIRGINIA', price: 'P 210.00', image: 'https://cdn.amightygirl.com/catalog/product/cache/1/image/602f0fa2c1f0d1ba5e241f914e856ff9/l/o/loving_vs._virginia_update.jpg' },
-            { name: 'WUHAN', price: 'P 175.00', image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1699956368i/202113807.jpg' },
-            { name: 'NO CRYSTAL STAIR', price: 'P 280.00', image: 'https://assets2.titleleaf.com/lerner/product/cover/xl_9780761361695_fc.jpg' },
-            { name: 'NOTHING BUT THE TRUTH', price: 'P 300.00', image: 'https://m.media-amazon.com/images/I/71VBmwJMVjL._AC_UF1000,1000_QL80_.jpg' },
-            { name: 'THE DIARY OF A YOUNG GIRL', price: 'P 350.00', image: 'https://www.amreading.com/wp-content/uploads/annefrank.jpg' },
-            { name: 'SCHINDLER\'S LIST', price: 'P 220.00', image: 'https://m.media-amazon.com/images/I/81sDaNFUCkL._AC_UF1000,1000_QL80_.jpg' },
-            { name: 'THE DRUGGIST OF AUSCHWITZ', price: 'P 190.00', image: 'https://img1.od-cdn.com/ImageType-100/2363-1/%7BAAA47548-46B9-4B11-BC42-8148E274FFA5%7DIMG100.JPG' },
-            { name: 'THERE ARE RIVERS IN THE SKY', price: 'P 160.00', image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1708964601i/202468422.jpg' }
-        ];
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartContainer = document.getElementById('cartContainer');
 
-        let currentPage = 1;
-        const itemsPerPage = 12;
-
-        // Function to display the documentaries
-        function displayDocumentaries(page) {
-            const startIndex = (page - 1) * itemsPerPage;
-            const endIndex = page * itemsPerPage;
-            const docsToDisplay = documentaries.slice(startIndex, endIndex);
-            const list = document.getElementById("novelList");
-
-            list.innerHTML = ''; // Clear existing list
-
-            docsToDisplay.forEach(doc => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <img src="${doc.image}" alt="${doc.name}">
-                    <div class="novel-info">
-                        <h3>${doc.name}</h3>
-                        <p class="price">${doc.price}</p>
-                        <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
+        if (cartItems.length === 0) {
+            cartContainer.innerHTML = '<p>Your cart is empty!</p>';
+        } else {
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <p>${item.price}</p>
                     </div>
                 `;
-                list.appendChild(listItem);
-            });
-
-            togglePagination();
-        }
-
-        // Function to handle previous and next page
-        function changePage(direction) {
-            currentPage += direction;
-            displayDocumentaries(currentPage);
-        }
-
-        // Function to toggle pagination buttons visibility
-        function togglePagination() {
-            const prevPageButton = document.getElementById("prevPage");
-            const nextPageButton = document.getElementById("nextPage");
-
-            prevPageButton.style.display = currentPage === 1 ? 'none' : 'inline';
-            nextPageButton.style.display = currentPage * itemsPerPage < documentaries.length ? 'inline' : 'none';
-        }
-
-        // Function to handle search functionality
-        function searchDocumentaries() {
-            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
-            const filteredDocs = documentaries.filter(doc => doc.name.toLowerCase().includes(searchQuery));
-            const list = document.getElementById("novelList");
-
-            list.innerHTML = ''; // Clear existing list
-
-            filteredDocs.forEach(doc => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <img src="${doc.image}" alt="${doc.name}">
-                    <div class="novel-info">
-                        <h3>${doc.name}</h3>
-                        <p class="price">${doc.price}</p>
-                        <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
-                    </div>
-                `;
-                list.appendChild(listItem);
+                cartContainer.appendChild(cartItem);
             });
         }
-
-        // Initialize the page with the first batch of documentaries
-        displayDocumentaries(currentPage);
     </script>
 </body>
 </html>
