@@ -54,37 +54,29 @@
     }
 
     .cart-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
       background-color: #333333;
       border-radius: 10px;
       padding: 20px;
     }
 
-    .cart-container h2 {
-      color: #f1f1f1;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-
     .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background-color: #444444;
-      margin-bottom: 15px;
       padding: 15px;
       border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     .cart-item img {
-      width: 80px;
-      height: 120px;
+      width: 150px;
+      height: 225px;
       object-fit: cover;
       border-radius: 5px;
-    }
-
-    .item-details {
-      display: flex;
-      flex-direction: column;
     }
 
     .item-info h3 {
@@ -99,6 +91,7 @@
     .item-actions {
       display: flex;
       align-items: center;
+      margin-top: 10px;
     }
 
     .item-actions button {
@@ -176,46 +169,61 @@
   </header>
 
   <main>
-    <div class="cart-container">
+    <div class="cart-container" id="cart-container">
+      <!-- Cart items will be dynamically inserted here -->
+    </div>
 
-      <div class="cart-item">
-        <div class="item-details">
-          <img src="book1.jpg" alt="Book 1">
+    <div class="cart-summary" id="cart-summary">
+      <!-- Cart summary will be inserted here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NOVELEER. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Function to update the cart
+    function updateCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.getElementById('cart-container');
+      const cartSummary = document.getElementById('cart-summary');
+
+      // Clear the container before adding new items
+      cartContainer.innerHTML = '';
+
+      let subtotal = 0;
+
+      // Loop through cart items and add them to the page
+      cart.forEach((item, index) => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
           <div class="item-info">
-            <h3>Book Title One</h3>
-            <p>Author: Jane Doe</p>
-            <p>Price: P19.99</p>
+            <h3>${item.name}</h3>
+            <p>Price: P${item.price}</p>
           </div>
-        </div>
-        <div class="item-actions">
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
-          <button class="remove-btn">Remove</button>
-        </div>
-      </div>
-
-      <div class="cart-item">
-        <div class="item-details">
-          <img src="book2.jpg" alt="Book 2">
-          <div class="item-info">
-            <h3>Book Title Two</h3>
-            <p>Author: John Smith</p>
-            <p>Price: P15.99</p>
+          <div class="item-actions">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
           </div>
-        </div>
-        <div class="item-actions">
-          <button>-</button>
-          <span>1</span>
-          <button>+</button>
-          <button class="remove-btn">Remove</button>
-        </div>
-      </div>
+        `;
 
-      <div class="cart-summary">
+        // Update subtotal
+        subtotal += parseFloat(item.price);
+
+        // Add item to cart container
+        cartContainer.appendChild(cartItem);
+      });
+
+      // Cart summary
+      cartSummary.innerHTML = `
         <div class="summary-item">
           <p>Subtotal:</p>
-          <p>P35.98</p>
+          <p>P${subtotal.toFixed(2)}</p>
         </div>
         <div class="summary-item">
           <p>Shipping:</p>
@@ -223,16 +231,23 @@
         </div>
         <div class="summary-item total">
           <p>Total:</p>
-          <p>P35.98</p>
+          <p>P${subtotal.toFixed(2)}</p>
         </div>
         <button class="checkout-btn">Proceed to Checkout</button>
-      </div>
-    </div>
-  </main>
+      `;
+    }
 
-  <footer>
-    <p>&copy; 2025 NOVELEER. All Rights Reserved.</p>
-  </footer>
+    // Function to remove an item from the cart
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1); // Remove the item at the specified index
+      localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart
+      updateCart(); // Refresh the cart display
+    }
+
+    // Initialize the cart display
+    updateCart();
+  </script>
 
 </body>
 </html>
