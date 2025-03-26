@@ -113,9 +113,13 @@
             border-radius: 8px;
         }
 
-        /* Popular Novels section should occupy the left part of the grid */
+        /* Popular Novels section should occupy the left part of the grid and span full height */
         .popular-novels {
             grid-column: span 1; /* This keeps it in a single column */
+            height: 100vh; /* Make this section span the full height of the viewport */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         /* Promotions and Sales sections are now in flexible grid layout */
