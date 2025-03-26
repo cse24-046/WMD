@@ -6,6 +6,8 @@
     <title>Thriller</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cat.css">
+    <!-- Adding Font Awesome for arrow icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,7 +16,7 @@
 
     <nav>
         <ul>
-            <li><button onclick="window.history.back();" style="background-color: #444; color: white; border: none; padding: 10px 20px; cursor: pointer;">Back</button></li>
+            <li><button onclick="window.history.back();" class="back-button"><i class="fas fa-arrow-left"></i></button></li>
         </ul>
     </nav>
 
@@ -51,8 +53,8 @@
             { name: 'SCHINDLER\'S LIST', price: 'P 220.00', image: 'https://m.media-amazon.com/images/I/81sDaNFUCkL._AC_UF1000,1000_QL80_.jpg' },
             { name: 'THE DRUGGIST OF AUSCHWITZ', price: 'P 190.00', image: 'https://img1.od-cdn.com/ImageType-100/2363-1/%7BAAA47548-46B9-4B11-BC42-8148E274FFA5%7DIMG100.JPG' },
             { name: 'THERE ARE RIVERS IN THE SKY', price: 'P 160.00', image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1708964601i/202468422.jpg' },
-            { name: 'THE MEN WHO STARE AT GOATS', price: 'P 148.00', image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1437183381i/1824.jpg'}
-               ];
+            { name: 'THE MEN WHO STARE AT GOATS', price: 'P 148.00', image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1437183381i/1824.jpg' }
+        ];
 
         let currentPage = 1;
         const itemsPerPage = 12;
@@ -144,5 +146,9 @@
         // Initialize the thriller list on page load
         displayThriller(currentPage);
     </script>
+
+    <style>
+
+    </style>
 </body>
 </html>
