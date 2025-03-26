@@ -28,6 +28,19 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
+                /* Cart Icon Styling */
+                .cart-icon a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+        }
+
+        .cart-icon a:hover {
+            color: #f39c12;
+        }
 
         nav {
             background-color: #444;
@@ -213,6 +226,9 @@
 <body>
     <header>
         <h1>Documentaries</h1>
+        <div class="cart-icon">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a> <!-- White Cart Icon from Font Awesome -->
+        </div>
     </header>
 
     <nav>
