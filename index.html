@@ -100,15 +100,27 @@
         /* Main Content Section */
         main {
             flex: 1;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr; /* 1 column for Popular Novels and 2 for Promotions & Sales */
+            gap: 20px;
             padding: 20px;
         }
 
         /* Section Styling */
         section {
-            flex: 1;
-            padding: 50px 20px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+        }
+
+        /* Popular Novels section should occupy the left part of the grid */
+        .popular-novels {
+            grid-column: 1 / 2; /* This makes it take up the leftmost column */
+        }
+
+        /* Promotions and Sales should fill the rest of the space */
+        .promotions, .sales {
+            grid-column: 2 / 4; /* This makes them take up the remaining space */
         }
 
         /* Section Headers */
@@ -122,8 +134,7 @@
         /* Grid Layout for Items */
         .promotions-grid,
         .sales-grid,
-        .popular-novels-grid,
-        .category-grid {
+        .popular-novels-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
@@ -133,8 +144,7 @@
         /* Item Styling */
         .promo-item,
         .sale-item,
-        .novel-item,
-        .category-item {
+        .novel-item {
             background-color: #444;
             color: #e1e1e1;
             padding: 20px;
@@ -146,8 +156,7 @@
 
         .promo-item:hover,
         .sale-item:hover,
-        .novel-item:hover,
-        .category-item:hover {
+        .novel-item:hover {
             transform: translateY(-5px);
             background-color: #333;
         }
@@ -171,8 +180,7 @@
         @media (max-width: 1024px) {
             .promotions-grid,
             .sales-grid,
-            .popular-novels-grid,
-            .category-grid {
+            .popular-novels-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -180,8 +188,7 @@
         @media (max-width: 768px) {
             .promotions-grid,
             .sales-grid,
-            .popular-novels-grid,
-            .category-grid {
+            .popular-novels-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -189,8 +196,7 @@
         @media (max-width: 480px) {
             .promotions-grid,
             .sales-grid,
-            .popular-novels-grid,
-            .category-grid {
+            .popular-novels-grid {
                 grid-template-columns: 1fr;
             }
         }
