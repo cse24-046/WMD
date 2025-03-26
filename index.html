@@ -101,7 +101,7 @@
         main {
             flex: 1;
             display: grid;
-            grid-template-columns: 1fr 2fr 2fr; /* 1 column for Popular Novels and 2 for Promotions & Sales */
+            grid-template-columns: 1fr 1fr 1fr; /* Three columns by default */
             gap: 20px;
             padding: 20px;
         }
@@ -115,12 +115,12 @@
 
         /* Popular Novels section should occupy the left part of the grid */
         .popular-novels {
-            grid-column: 1 / 2; /* This makes it take up the leftmost column */
+            grid-column: span 1; /* This keeps it in a single column */
         }
 
-        /* Promotions and Sales should fill the rest of the space */
+        /* Promotions and Sales sections are now in flexible grid layout */
         .promotions, .sales {
-            grid-column: 2 / 4; /* This makes them take up the remaining space */
+            grid-column: span 2; /* This makes them take up two columns */
         }
 
         /* Section Headers */
@@ -178,26 +178,22 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .promotions-grid,
-            .sales-grid,
-            .popular-novels-grid {
-                grid-template-columns: repeat(3, 1fr);
+            main {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+            }
+
+            .promotions, .sales {
+                grid-column: span 2;
             }
         }
 
         @media (max-width: 768px) {
-            .promotions-grid,
-            .sales-grid,
-            .popular-novels-grid {
-                grid-template-columns: repeat(2, 1fr);
+            main {
+                grid-template-columns: 1fr; /* 1 column for smaller screens */
             }
-        }
 
-        @media (max-width: 480px) {
-            .promotions-grid,
-            .sales-grid,
-            .popular-novels-grid {
-                grid-template-columns: 1fr;
+            .promotions, .sales {
+                grid-column: span 1;
             }
         }
 
@@ -259,7 +255,6 @@
                 <div class="novel-item">Novel 4</div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer Section -->
