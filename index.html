@@ -101,30 +101,25 @@
         main {
             flex: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr; /* Three columns by default */
+            grid-template-columns: 2fr 1fr; /* Two columns: 2 parts for content, 1 part for aside */
             gap: 20px;
             padding: 20px;
         }
 
-        /* Section Styling */
-        section {
+        /* Article and Aside Sections */
+        article {
             padding: 20px;
             background-color: #444;
             border-radius: 8px;
         }
 
-        /* Popular Novels section should occupy the left part of the grid and span full height */
-        .popular-novels {
-            grid-column: span 1; /* This keeps it in a single column */
-            height: 100vh; /* Make this section span the full height of the viewport */
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        /* Promotions and Sales sections are now in flexible grid layout */
-        .promotions, .sales {
-            grid-column: span 2; /* This makes them take up two columns */
+        aside {
+            padding: 20px;
+            background-color: #444;
+            border-radius: 8px;
+            height: 100vh; /* Make the aside span the entire height of the screen */
+            display: flex;
+            flex-direction: column;
         }
 
         /* Section Headers */
@@ -193,11 +188,11 @@
         /* Responsive Design */
         @media (max-width: 1024px) {
             main {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+                grid-template-columns: 1fr; /* 1 column for medium screens */
             }
 
-            .promotions, .sales {
-                grid-column: span 2;
+            aside {
+                height: auto; /* Remove full-height for smaller screens */
             }
         }
 
@@ -206,8 +201,8 @@
                 grid-template-columns: 1fr; /* 1 column for smaller screens */
             }
 
-            .promotions, .sales {
-                grid-column: span 1;
+            aside {
+                height: auto; /* Remove full-height for smaller screens */
             }
         }
 
@@ -242,7 +237,8 @@
 
     <!-- Main Content Section -->
     <main>
-        <section class="promotions">
+        <!-- Promotions Article Section -->
+        <article class="promotions">
             <h2>Promotions</h2>
             <div class="promotions-grid">
                 <div class="promo-item">
@@ -258,9 +254,10 @@
                     <img src="https://via.placeholder.com/300x200" alt="Documentary Promotion">
                 </div>
             </div>
-        </section>
+        </article>
 
-        <section class="sales">
+        <!-- On Sale Article Section -->
+        <article class="sales">
             <h2>On Sale</h2>
             <div class="sales-grid">
                 <div class="sale-item">
@@ -276,9 +273,10 @@
                     <img src="https://via.placeholder.com/300x200" alt="Fantasy Book Sale">
                 </div>
             </div>
-        </section>
+        </article>
 
-        <section class="popular-novels">
+        <!-- Popular Novels Section (Now an Aside) -->
+        <aside class="popular-novels">
             <h2>Popular Novels</h2>
             <div class="popular-novels-grid">
                 <div class="novel-item">
@@ -298,7 +296,7 @@
                     <img src="https://via.placeholder.com/300x200" alt="Novel 4">
                 </div>
             </div>
-        </section>
+        </aside>
     </main>
 
     <!-- Footer Section -->
