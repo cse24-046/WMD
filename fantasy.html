@@ -59,7 +59,7 @@
         function displayFantasy(page) {
             const startIndex = (page - 1) * itemsPerPage;
             const endIndex = page * itemsPerPage;
-            const docsToDisplay = thriller.slice(startIndex, endIndex);
+            const docsToDisplay = fantasy.slice(startIndex, endIndex);
             const list = document.getElementById("novelList");
 
             list.innerHTML = ''; // Clear existing list
