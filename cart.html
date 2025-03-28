@@ -33,32 +33,32 @@
             padding: 20px;
         }
 
-        .cart-list {
-            list-style: none;
-            padding: 0;
+        .cart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        .cart-list li {
+        .cart-item {
             background-color: #444;
             padding: 20px;
-            margin-bottom: 15px;
             border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .cart-list img {
-            width: 100px;
-            height: 100px;
+        .cart-item img {
+            width: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
         }
 
         .cart-info {
-            flex-grow: 1;
-            padding-left: 15px;
+            text-align: center;
+            padding: 10px 0;
         }
 
         .cart-info h3 {
@@ -68,12 +68,14 @@
 
         .cart-info p {
             color: #e1e1e1;
+            margin: 5px 0;
         }
 
         .controls {
             display: flex;
-            align-items: center;
+            justify-content: center;
             gap: 10px;
+            margin-top: 10px;
         }
 
         .controls button {
@@ -132,12 +134,12 @@
     </header>
 
     <div class="container">
-        <ul class="cart-list" id="cartList">
+        <div class="cart-grid" id="cartGrid">
             <!-- Cart items will be inserted dynamically -->
-        </ul>
+        </div>
 
         <div class="total" id="totalAmount">
-            Total: P 0.00
+            Total: BWP 0.00
         </div>
 
         <button class="checkout-btn" id="checkoutButton">Checkout</button>
@@ -146,19 +148,20 @@
     <script>
         function displayCart() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartList = document.getElementById('cartList');
+            const cartGrid = document.getElementById('cartGrid');
             const totalAmount = document.getElementById('totalAmount');
 
-            cartList.innerHTML = ''; // Clear the cart list
+            cartGrid.innerHTML = ''; // Clear the grid
 
             let total = 0;
             cart.forEach((item, index) => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
                     <img src="${item.image}" alt="${item.name}">
                     <div class="cart-info">
                         <h3>${item.name}</h3>
-                        <p class="price">P ${item.price}</p>
+                        <p class="price">BWP ${item.price}</p>
                         <div class="controls">
                             <button class="increase-btn" onclick="updateQuantity(${index}, 1)">+</button>
                             <p>Quantity: ${item.quantity}</p>
@@ -167,14 +170,14 @@
                         </div>
                     </div>
                 `;
-                cartList.appendChild(listItem);
+                cartGrid.appendChild(cartItem);
 
                 // Convert price to number and add to total
-                total += parseFloat(item.price.replace('P ', '').replace(',', '')) * item.quantity;
+                total += parseFloat(item.price.replace('BWP ', '').replace(',', '')) * item.quantity;
             });
 
             // Update total price display
-            totalAmount.innerText = `Total: P ${total.toFixed(2)}`;
+            totalAmount.innerText = `Total: BWP ${total.toFixed(2)}`;
         }
 
         function updateQuantity(index, change) {
