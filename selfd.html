@@ -67,7 +67,8 @@
         { name: '', price: '', image: '' },
         { name: '', price: '', image: '' },
         { name: '', price: '', image: '' },
-         ];
+        
+    ];
 
         let currentPage = 1;
         const itemsPerPage = 12;
@@ -76,7 +77,7 @@
         function displaySelfD(page) {
             const startIndex = (page - 1) * itemsPerPage;
             const endIndex = page * itemsPerPage;
-            const docsToDisplay = scifi.slice(startIndex, endIndex);
+            const docsToDisplay = selfd.slice(startIndex, endIndex);
             const list = document.getElementById("novelList");
 
             list.innerHTML = ''; // Clear existing list
