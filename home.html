@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Noveleer - Bookstore</title>
+
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: #f5f5f5;
+            background-image: url('https://i.pinimg.com/736x/60/ac/a0/60aca02acc9ad62c889a1767220cc1ff.jpg'); /* Add your bookshelf image here */
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(8px); /* Blur the background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* Allow sections to stack vertically */
+            padding-top: 60px; /* Add space for fixed header */
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            z-index: 10;
+        }
+
+        .logo h1 a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase; /* Make the logo text uppercase */
+        }
+
+
+        /* Cart Icon Styling */
+        .cart-icon a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            color: white;  /* Ensure the cart icon is white */
+            text-align: center;
+        }
+
+        .cart-icon a:hover {
+            color: #ff8c00;  /* Optional: Add hover effect to make it orange */
+        }
+
+        /* Navigation Styling */
+        nav {
+            margin-top: 100px; /* Adjust for fixed header */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff8c00; /* Highlight color on hover */
+        }
+
+        /* Main Content Section */
+        main {
+            flex: 1; /* Allow main content to take up remaining space */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Section Styling */
+        section {
+            flex: 1; /* Make each section fill the remaining space */
+            padding: 50px 20px;
+        }
+
+        /* Section Headers */
+        h2 {
+            color: #ff8c00;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Grid Layout for Items */
+        .promotions-grid,
+        .sales-grid,
+        .popular-novels-grid,
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            justify-items: center;
+        }
+
+        /* Item Styling */
+        .promo-item,
+        .sale-item,
+        .novel-item,
+        .category-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 18px;
+            color: #f5f5f5;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer p {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="cart-icon">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a> <!-- White Cart Icon from Font Awesome -->
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <ul>
+            <li><a href="documetaries.html">DOCUMENTARIES</a></li>
+            <li><a href="thriller.html">THRILLER</a></li>
+            <li><a href="fantasy.html">FANTASY</a></li>
+            <li><a href="mystery.html">MYSTERY</a></li>
+            <li><a href="scifi.html">SCI-FI</a></li>
+            <li><a href="selfd.html">SELF DEVELOPMENT</a></li>
+            <li><a href="horror.html">HORROR</a></li>
+            <li><a href="drama.html">DRAMA</a></li>
+            <li><a href="romance.html">ROMANCE</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="promotions">
+            <h2>Promotions</h2>
+            <div class="promotions-grid">
+                <div class="promo-item">50% off on Thriller Books!</div>
+                <div class="promo-item">Buy 1 Get 1 Free on Romance Novels</div>
+                <div class="promo-item">Save 20% on Documentaries</div>
+            </div>
+        </section>
+
+        <section class="sales">
+            <h2>On Sale</h2>
+            <div class="sales-grid">
+                <div class="sale-item">Sci-Fi Book 1 - 30% Off</div>
+                <div class="sale-item">Horror Book 2 - 25% Off</div>
+                <div class="sale-item">Fantasy Book 3 - 15% Off</div>
+            </div>
+        </section>
+
+        <section class="popular-novels">
+            <h2>Popular Novels</h2>
+            <div class="popular-novels-grid">
+                <div class="novel-item">Novel 1</div>
+                <div class="novel-item">Novel 2</div>
+                <div class="novel-item">Novel 3</div>
+                <div class="novel-item">Novel 4</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Noveleer. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
