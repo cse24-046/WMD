@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thriller</title>
+    <title>Drama</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cat.css">
-    <!-- Adding Font Awesome for arrow icon -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Thriller</h1>
+        <h1>Drama</h1>
     </header>
 
     <nav>
@@ -24,12 +23,12 @@
         <!-- Search Box -->
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search" />
-            <button onclick="searchThriller()">Search</button>
+            <button onclick="searchDrama()">Search</button>
         </div>
 
-        <!-- Thriller List -->
+        <!-- Novel List -->
         <ul class="novel-list" id="novelList">
-            <!-- Thriller will be inserted dynamically -->
+            <!-- Novel will be inserted dynamically -->
         </ul>
 
         <!-- Pagination Section -->
@@ -40,7 +39,7 @@
     </div>
 
     <script>
-        const thriller = [
+        const drama= [
         { name: '', price: '', image: '' },
         { name: '', price: '', image: '' },
         { name: '', price: '', image: '' },
@@ -68,16 +67,17 @@
         { name: '', price: '', image: '' },
         { name: '', price: '', image: '' },
         { name: '', price: '', image: '' },
-        ];
+        
+    ];
 
         let currentPage = 1;
         const itemsPerPage = 12;
 
-        // Function to display the thriller
-        function displayThriller(page) {
+        // Function to display the novel
+        function displayDrama(page) {
             const startIndex = (page - 1) * itemsPerPage;
             const endIndex = page * itemsPerPage;
-            const docsToDisplay = thriller.slice(startIndex, endIndex);
+            const docsToDisplay = drama.slice(startIndex, endIndex);
             const list = document.getElementById("novelList");
 
             list.innerHTML = ''; // Clear existing list
@@ -102,7 +102,7 @@
         // Function to handle previous and next page
         function changePage(direction) {
             currentPage += direction;
-            displayThriller(currentPage);
+            displayDrama(currentPage);
         }
 
         // Function to toggle pagination buttons visibility
@@ -111,13 +111,13 @@
             const nextPageButton = document.getElementById("nextPage");
 
             prevPageButton.style.display = currentPage === 1 ? 'none' : 'inline';
-            nextPageButton.style.display = currentPage * itemsPerPage < thriller.length ? 'inline' : 'none';
+            nextPageButton.style.display = currentPage * itemsPerPage < drama.length ? 'inline' : 'none';
         }
 
         // Function to handle search functionality
-        function searchThriller() {
+        function searchDrama() {
             const searchQuery = document.getElementById("searchInput").value.toLowerCase();
-            const filteredDocs = thriller.filter(doc => doc.name.toLowerCase().includes(searchQuery));
+            const filteredDocs = selfd.filter(doc => doc.name.toLowerCase().includes(searchQuery));
             const list = document.getElementById("novelList");
 
             list.innerHTML = ''; // Clear existing list
@@ -147,7 +147,7 @@
             // Retrieve the current cart from localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            // Add the selected thriller to the cart
+            // Add the selected novel to the cart
             cart.push({ name, price, image });
 
             // Store the updated cart back into localStorage
@@ -157,8 +157,8 @@
             alert(`${name} has been added to your cart!`);
         }
 
-        // Initialize the thriller list on page load
-        displayThriller(currentPage);
+        // Initialize the novel list on page load
+        displayDrama(currentPage);
     </script>
 </body>
 </html>
