@@ -116,7 +116,7 @@
         // Function to handle search functionality
         function searchSciFi() {
             const searchQuery = document.getElementById("searchInput").value.toLowerCase();
-            const filteredDocs = documentaries.filter(doc => doc.name.toLowerCase().includes(searchQuery));
+            const filteredDocs = scifi.filter(doc => doc.name.toLowerCase().includes(searchQuery));
             const list = document.getElementById("novelList");
 
             list.innerHTML = ''; // Clear existing list
