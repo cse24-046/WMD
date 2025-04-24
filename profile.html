@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Noveleer</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 10;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .logo h1 a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .icon-group a {
+      font-size: 24px;
+      color: white;
+      margin-left: 15px;
+    }
+
+    main {
+      max-width: 700px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff8c00;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #444;
+      color: #fff;
+    }
+
+    button {
+      background-color: #ff8c00;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #e07c00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin-top: 40px;
+    }
+
+    footer p {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="icon-group">
+      <a href="index.html"><i class="fas fa-user"></i></a>
+    </div>
+    <div class="logo">
+      <h1><a href="index.html">NOVELEER</a></h1>
+    </div>
+    <div class="icon-group">
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </header>
+
+  <!-- Profile Form -->
+  <main>
+    <h2>User Profile</h2>
+    <form>
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter email">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter new password">
+
+      <label for="address">Shipping Address</label>
+      <input type="text" id="address" placeholder="Street Address">
+
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="City">
+
+      <label for="zipcode">ZIP Code</label>
+      <input type="text" id="zipcode" placeholder="ZIP Code">
+
+<!-- Inside the <form> tag in your profile.html -->
+
+<!-- Country Dropdown -->
+<label for="country">Country</label>
+<select id="country">
+  <option value="">Select Country</option>
+  <option value="US">🇺🇸 United States</option>
+  <option value="UK">🇬🇧 United Kingdom</option>
+  <option value="CA">🇨🇦 Canada</option>
+  <option value="NG">🇳🇬 Nigeria</option>
+  <option value="ZA">🇿🇦 South Africa</option>
+  <option value="IN">🇮🇳 India</option>
+  <option value="DE">🇩🇪 Germany</option>
+  <option value="FR">🇫🇷 France</option>
+  <option value="IT">🇮🇹 Italy</option>
+  <option value="JP">🇯🇵 Japan</option>
+  <option value="CN">🇨🇳 China</option>
+  <option value="BR">🇧🇷 Brazil</option>
+  <option value="AU">🇦🇺 Australia</option>
+  <option value="MX">🇲🇽 Mexico</option>
+  <option value="EG">🇪🇬 Egypt</option>
+  <option value="KE">🇰🇪 Kenya</option>
+  <option value="GH">🇬🇭 Ghana</option>
+</select>
+
+<!-- Phone Number Input with Country Code Dropdown -->
+<label for="phone">Phone Number</label>
+<div style="display: flex; gap: 10px;">
+  <select style="flex: 1;">
+    <option>+1 🇺🇸</option>
+    <option>+44 🇬🇧</option>
+    <option>+234 🇳🇬</option>
+    <option>+27 🇿🇦</option>
+    <option>+91 🇮🇳</option>
+    <option>+49 🇩🇪</option>
+    <option>+33 🇫🇷</option>
+    <option>+81 🇯🇵</option>
+    <option>+86 🇨🇳</option>
+    <option>+55 🇧🇷</option>
+    <option>+61 🇦🇺</option>
+    <option>+52 🇲🇽</option>
+    <option>+20 🇪🇬</option>
+    <option>+254 🇰🇪</option>
+    <option>+233 🇬🇭</option>
+    <option>+39 🇮🇹</option>
+    <option>+1 🇨🇦</option>
+  </select>
+  <input type="tel" style="flex: 2;" placeholder="Phone Number">
+</div>
+
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Noveleer. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
