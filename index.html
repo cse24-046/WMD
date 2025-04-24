@@ -104,7 +104,7 @@
 
     .carousel-wrapper {
       overflow: hidden;
-      width: 100%;
+      width: 80%;
       max-width: 1000px;
       margin: 0 auto 30px;
       border-radius: 12px;
@@ -116,12 +116,18 @@
       transition: transform 0.5s ease-in-out;
     }
 
-    .carousel-track img {
-      width: 100%;
-      max-width: 1000px;
-      height: 300px;
+    .carousel-slide {
+      display: flex;
+      flex: 0 0 100%;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .carousel-slide img {
+      width: 23%;
+      height: 250px;
       object-fit: cover;
-      flex-shrink: 0;
+      border-radius: 8px;
     }
 
     .popular-novels-grid {
@@ -185,9 +191,18 @@
       <h2>Promotions</h2>
       <div class="carousel-wrapper">
         <div class="carousel-track" id="promotions-track">
-          <img src="book1.jpg" alt="Promo 1">
-          <img src="book2.jpg" alt="Promo 2">
-          <img src="book3.jpg" alt="Promo 3">
+          <div class="carousel-slide">
+            <img src="book1.jpg" alt="Promo 1">
+            <img src="book2.jpg" alt="Promo 2">
+            <img src="book3.jpg" alt="Promo 3">
+            <img src="book4.jpg" alt="Promo 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="book5.jpg" alt="Promo 5">
+            <img src="book6.jpg" alt="Promo 6">
+            <img src="book7.jpg" alt="Promo 7">
+            <img src="book8.jpg" alt="Promo 8">
+          </div>
         </div>
       </div>
     </section>
@@ -197,9 +212,18 @@
       <h2>On Sale</h2>
       <div class="carousel-wrapper">
         <div class="carousel-track" id="sales-track">
-          <img src="sale1.jpg" alt="Sale 1">
-          <img src="sale2.jpg" alt="Sale 2">
-          <img src="sale3.jpg" alt="Sale 3">
+          <div class="carousel-slide">
+            <img src="sale1.jpg" alt="Sale 1">
+            <img src="sale2.jpg" alt="Sale 2">
+            <img src="sale3.jpg" alt="Sale 3">
+            <img src="sale4.jpg" alt="Sale 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="sale5.jpg" alt="Sale 5">
+            <img src="sale6.jpg" alt="Sale 6">
+            <img src="sale7.jpg" alt="Sale 7">
+            <img src="sale8.jpg" alt="Sale 8">
+          </div>
         </div>
       </div>
     </section>
@@ -221,22 +245,22 @@
     <p>&copy; 2025 Noveleer. All rights reserved.</p>
   </footer>
 
-  <!-- Horizontal Carousel Script -->
+  <!-- Carousel Script -->
   <script>
-    function startHorizontalCarousel(trackId) {
+    function startBatchCarousel(trackId) {
       const track = document.getElementById(trackId);
-      const slides = track.querySelectorAll('img');
+      const slides = track.children;
       let index = 0;
 
       setInterval(() => {
         index = (index + 1) % slides.length;
         track.style.transform = `translateX(-${index * 100}%)`;
-      }, 3000);
+      }, 4000);
     }
 
     window.onload = () => {
-      startHorizontalCarousel('promotions-track');
-      startHorizontalCarousel('sales-track');
+      startBatchCarousel('promotions-track');
+      startBatchCarousel('sales-track');
     };
   </script>
 
