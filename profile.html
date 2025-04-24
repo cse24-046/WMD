@@ -3,50 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Profile - Noveleer</title>
+  <title>User Profile - Noveleer</title>
 
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
+  
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      padding: 15px;
+      padding: 15px 20px;
       background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
       z-index: 10;
     }
 
-    .logo h1 {
-      font-size: 28px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .logo h1 a {
+    .back-button {
       color: #fff;
+      font-size: 24px;
       text-decoration: none;
     }
 
-    .icon-group a {
-      font-size: 24px;
-      color: white;
-      margin-left: 15px;
-    }
-
     main {
+      padding: 40px 20px;
       max-width: 700px;
-      margin: auto;
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 30px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.6);
       border-radius: 12px;
-      margin-top: 30px;
     }
 
     h2 {
@@ -58,145 +52,154 @@
     form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
     }
 
     label {
-      font-weight: bold;
+      margin-bottom: 5px;
+      color: #fff;
     }
 
     input, select {
       padding: 10px;
-      font-size: 16px;
+      border-radius: 6px;
       border: none;
-      border-radius: 8px;
-      background-color: #444;
+      font-size: 16px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
       color: #fff;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    .phone-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .phone-group select {
+      flex: 1;
+    }
+
+    .phone-group input {
+      flex: 2;
     }
 
     button {
       background-color: #ff8c00;
-      border: none;
+      color: white;
       padding: 12px;
       font-size: 16px;
-      color: #fff;
+      border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 20px;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #e07c00;
+      background-color: #e67e00;
     }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: rgba(0, 0, 0, 0.8);
-      margin-top: 40px;
-    }
-
-    footer p {
-      color: #fff;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header with back button -->
   <header>
-    <div class="icon-group">
-      <a href="index.html"><i class="fas fa-user"></i></a>
-    </div>
-    <div class="logo">
-      <h1><a href="index.html">NOVELEER</a></h1>
-    </div>
-    <div class="icon-group">
-      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-    </div>
+    <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
   </header>
 
-  <!-- Profile Form -->
+  <!-- Main Profile Form -->
   <main>
-    <h2>User Profile</h2>
+    <h2>Edit Profile</h2>
     <form>
-      <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Enter username">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Your username">
+      </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter email">
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="your@email.com">
+      </div>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter new password">
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Change password">
+      </div>
 
-      <label for="address">Shipping Address</label>
-      <input type="text" id="address" placeholder="Street Address">
+      <div>
+        <label for="postal-address">Postal Address</label>
+        <input type="text" id="postal-address" placeholder="123 Book Lane">
+      </div>
 
-      <label for="city">City</label>
-      <input type="text" id="city" placeholder="City">
+      <div>
+        <label for="zip-code">Zip Code</label>
+        <input type="text" id="zip-code" placeholder="12345">
+      </div>
 
-      <label for="zipcode">ZIP Code</label>
-      <input type="text" id="zipcode" placeholder="ZIP Code">
+      <div>
+        <label for="city">City</label>
+        <input type="text" id="city" placeholder="City Name">
+      </div>
 
-<!-- Inside the <form> tag in your profile.html -->
+      <div>
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="">Select Country</option>
+          <option value="US">🇺🇸 United States</option>
+          <option value="UK">🇬🇧 United Kingdom</option>
+          <option value="CA">🇨🇦 Canada</option>
+          <option value="NG">🇳🇬 Nigeria</option>
+          <option value="ZA">🇿🇦 South Africa</option>
+          <option value="BW">🇧🇼 Botswana</option>
+          <option value="IN">🇮🇳 India</option>
+          <option value="DE">🇩🇪 Germany</option>
+          <option value="FR">🇫🇷 France</option>
+          <option value="IT">🇮🇹 Italy</option>
+          <option value="JP">🇯🇵 Japan</option>
+          <option value="CN">🇨🇳 China</option>
+          <option value="BR">🇧🇷 Brazil</option>
+          <option value="AU">🇦🇺 Australia</option>
+          <option value="MX">🇲🇽 Mexico</option>
+          <option value="EG">🇪🇬 Egypt</option>
+          <option value="KE">🇰🇪 Kenya</option>
+          <option value="GH">🇬🇭 Ghana</option>
+        </select>
+      </div>
 
-<!-- Country Dropdown -->
-<label for="country">Country</label>
-<select id="country">
-  <option value="">Select Country</option>
-  <option value="US">🇺🇸 United States</option>
-  <option value="UK">🇬🇧 United Kingdom</option>
-  <option value="CA">🇨🇦 Canada</option>
-  <option value="NG">🇳🇬 Nigeria</option>
-  <option value="ZA">🇿🇦 South Africa</option>
-  <option value="IN">🇮🇳 India</option>
-  <option value="DE">🇩🇪 Germany</option>
-  <option value="FR">🇫🇷 France</option>
-  <option value="IT">🇮🇹 Italy</option>
-  <option value="JP">🇯🇵 Japan</option>
-  <option value="CN">🇨🇳 China</option>
-  <option value="BR">🇧🇷 Brazil</option>
-  <option value="AU">🇦🇺 Australia</option>
-  <option value="MX">🇲🇽 Mexico</option>
-  <option value="EG">🇪🇬 Egypt</option>
-  <option value="KE">🇰🇪 Kenya</option>
-  <option value="GH">🇬🇭 Ghana</option>
-</select>
-
-<!-- Phone Number Input with Country Code Dropdown -->
-<label for="phone">Phone Number</label>
-<div style="display: flex; gap: 10px;">
-  <select style="flex: 1;">
-    <option>+1 🇺🇸</option>
-    <option>+44 🇬🇧</option>
-    <option>+234 🇳🇬</option>
-    <option>+27 🇿🇦</option>
-    <option>+91 🇮🇳</option>
-    <option>+49 🇩🇪</option>
-    <option>+33 🇫🇷</option>
-    <option>+81 🇯🇵</option>
-    <option>+86 🇨🇳</option>
-    <option>+55 🇧🇷</option>
-    <option>+61 🇦🇺</option>
-    <option>+52 🇲🇽</option>
-    <option>+20 🇪🇬</option>
-    <option>+254 🇰🇪</option>
-    <option>+233 🇬🇭</option>
-    <option>+39 🇮🇹</option>
-    <option>+1 🇨🇦</option>
-  </select>
-  <input type="tel" style="flex: 2;" placeholder="Phone Number">
-</div>
-
+      <div>
+        <label for="phone">Phone Number</label>
+        <div class="phone-group">
+          <select>
+            <option>+1 🇺🇸</option>
+            <option>+44 🇬🇧</option>
+            <option>+234 🇳🇬</option>
+            <option>+27 🇿🇦</option>
+            <option>+267 🇧🇼</option>
+            <option>+91 🇮🇳</option>
+            <option>+49 🇩🇪</option>
+            <option>+33 🇫🇷</option>
+            <option>+81 🇯🇵</option>
+            <option>+86 🇨🇳</option>
+            <option>+55 🇧🇷</option>
+            <option>+61 🇦🇺</option>
+            <option>+52 🇲🇽</option>
+            <option>+20 🇪🇬</option>
+            <option>+254 🇰🇪</option>
+            <option>+233 🇬🇭</option>
+            <option>+39 🇮🇹</option>
+            <option>+1 🇨🇦</option>
+          </select>
+          <input type="tel" placeholder="Phone Number">
+        </div>
+      </div>
 
       <button type="submit">Save Changes</button>
     </form>
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Noveleer. All rights reserved.</p>
-  </footer>
 
 </body>
 </html>
