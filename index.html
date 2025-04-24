@@ -39,9 +39,14 @@
       top: 0;
       left: 0;
       right: 0;
-      padding: 15px;
+      padding: 15px 30px;
       background-color: rgba(0, 0, 0, 0.6);
       z-index: 10;
+    }
+
+    .logo {
+      flex-grow: 1;
+      text-align: center;
     }
 
     .logo h1 a {
@@ -52,7 +57,13 @@
       text-transform: uppercase;
     }
 
-    .cart-icon a {
+    .icon-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .icon-group a {
       font-size: 24px;
       color: white;
     }
@@ -162,10 +173,15 @@
 
   <!-- Header -->
   <header>
+    <div class="icon-group">
+      <a href="profile.html"><i class="fas fa-user-circle"></i></a>
+    </div>
+
     <div class="logo">
       <h1><a href="index.html">NOVELEER</a></h1>
     </div>
-    <div class="cart-icon">
+
+    <div class="icon-group">
       <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
     </div>
   </header>
