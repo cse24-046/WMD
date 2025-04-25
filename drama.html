@@ -15,7 +15,9 @@
 
     <nav>
         <ul>
-            <li><button onclick="window.history.back();" class="back-button"><i class="fas fa-arrow-left"></i></button></li>
+            <li>
+            <button onclick="window.history.back();" class="back-button">
+            <i class="fas fa-arrow-left"></i></button></li>
         </ul>
     </nav>
 
@@ -105,7 +107,6 @@
             displayDrama(currentPage);
         }
 
-        // Function to toggle pagination buttons visibility
         function togglePagination() {
             const prevPageButton = document.getElementById("prevPage");
             const nextPageButton = document.getElementById("nextPage");
@@ -114,13 +115,13 @@
             nextPageButton.style.display = currentPage * itemsPerPage < drama.length ? 'inline' : 'none';
         }
 
-        // Function to handle search functionality
+
         function searchDrama() {
             const searchQuery = document.getElementById("searchInput").value.toLowerCase();
             const filteredDocs = selfd.filter(doc => doc.name.toLowerCase().includes(searchQuery));
             const list = document.getElementById("novelList");
 
-            list.innerHTML = ''; // Clear existing list
+            list.innerHTML = '';
 
             filteredDocs.forEach(doc => {
                 const listItem = document.createElement('li');
@@ -137,27 +138,18 @@
             });
         }
 
-        // Function to handle the "Add to Cart" button click
         function addToCart(event) {
             const button = event.target;
             const name = button.getAttribute('data-name');
             const price = button.getAttribute('data-price');
             const image = button.getAttribute('data-image');
 
-            // Retrieve the current cart from localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Add the selected novel to the cart
             cart.push({ name, price, image });
-
-            // Store the updated cart back into localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Optionally, alert the user or show a notification
             alert(`${name} has been added to your cart!`);
         }
 
-        // Initialize the novel list on page load
         displayDrama(currentPage);
     </script>
 </body>
