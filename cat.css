@@ -1,53 +1,48 @@
 
   header {
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    font-size: 32px;
+    padding: 10px 20px;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .header-content h1 {
+    font-size: 24px;
+    margin: 0;
     font-weight: bold;
     letter-spacing: 1px;
+    color: #fff;
   }
-
-  nav {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px 30px;
-  }
-
-  nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li {
-    margin-right: 10px;
-  }
-
+  
   .back-button {
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
-    padding: 10px 16px;
+    padding: 6px 10px;
     color: white;
     font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
   }
-
+  
   .back-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
-
+  
+  /* Container */
   .container {
     padding: 20px;
   }
-
+  
+  /* Search Box */
   .search-box {
     text-align: center;
     margin-bottom: 30px;
   }
-
+  
   .search-box input {
     padding: 10px;
     width: 50%;
@@ -56,11 +51,11 @@
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
   }
-
+  
   .search-box input::placeholder {
     color: #bbb;
   }
-
+  
   .search-box button {
     padding: 10px 20px;
     background-color: #ff8c00;
@@ -70,7 +65,8 @@
     border-radius: 4px;
     margin-left: 10px;
   }
-
+  
+  /* Documentaries Grid */
   .novel-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -78,7 +74,7 @@
     padding: 0;
     list-style: none;
   }
-
+  
   .novel-list li {
     background-color: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
@@ -86,25 +82,26 @@
     padding: 10px;
     text-align: center;
   }
-
+  
   .novel-list img {
     width: 100%;
     height: 240px;
     object-fit: cover;
     border-radius: 6px;
   }
-
+  
   .novel-info h3 {
     margin: 10px 0 5px;
     font-size: 18px;
+    color: #fff;
   }
-
+  
   .price {
     color: #ff8c00;
     font-weight: bold;
     font-size: 16px;
   }
-
+  
   .add-to-cart {
     margin-top: 10px;
     padding: 8px 14px;
@@ -115,20 +112,25 @@
     cursor: pointer;
     font-size: 14px;
   }
-
+  
+  .add-to-cart:hover {
+    background-color: #e67700;
+  }
+  
+  /* Pagination */
   .pagination {
     text-align: center;
     margin-top: 30px;
   }
-
+  
   .pagination a {
     margin: 0 10px;
     color: #ff8c00;
     text-decoration: none;
     font-weight: bold;
   }
-
+  
   .pagination a:hover {
     text-decoration: underline;
   }
-
+  
