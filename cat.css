@@ -18,18 +18,10 @@
     color: #fff;
   }
   
-  .back-button {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    padding: 6px 10px;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .back-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  .back-btn {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
   }
   
   /* Container */
