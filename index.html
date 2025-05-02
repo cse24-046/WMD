@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,144 +8,6 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 15px 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 10;
-  }
-
-  .logo {
-    flex-grow: 1;
-    text-align: center;
-  }
-
-  .logo h1 a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .icon-group {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .icon-group a {
-    font-size: 24px;
-    color: white;
-  }
-
-  nav {
-    margin-top: 100px;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-
-  nav ul {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    list-style: none;
-  }
-
-  nav ul li {
-    margin: 0 15px;
-  }
-
-  nav ul li a {
-    color: #f5f5f5;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  nav ul li a:hover {
-    color: #ff8c00;
-  }
-
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  section {
-    padding: 30px 0 20px;
-  }
-
-  h2 {
-    color: #ff8c00;
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .carousel-wrapper {
-    overflow: hidden;
-    width: 80%;
-    max-width: 1000px;
-    margin: 0 auto 20px;
-    border-radius: 12px;
-    position: relative;
-  }
-
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .carousel-slide {
-    display: flex;
-    flex: 0 0 100%;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .carousel-slide img {
-    width: 23%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-
-  .novel-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    font-size: 18px;
-    color: #f5f5f5;
-  }
-
-  footer {
-    text-align: center;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.8);
-    margin-top: 20px;
-  }
-
-  footer p {
-    color: #fff;
-  }
-</style>
 </head>
 <body>
 
@@ -155,7 +16,7 @@
     <div class="icon-group">
       <a href="profile.html"><i class="fas fa-user-circle"></i></a>
     </div>
-<h1>NOVELEER</h1>
+    <h1>NOVELEER</h1>
     <div class="icon-group">
       <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
     </div>
@@ -164,108 +25,32 @@
   <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="documetaries.html">DOCUMENTARIES</a></li>
-      <li><a href="thriller.html">THRILLER</a></li>
-      <li><a href="fantasy.html">FANTASY</a></li>
-      <li><a href="mystery.html">MYSTERY</a></li>
-      <li><a href="scifi.html">SCI-FI</a></li>
-      <li><a href="selfd.html">SELF DEVELOPMENT</a></li>
-      <li><a href="horror.html">HORROR</a></li>
-      <li><a href="drama.html">DRAMA</a></li>
-      <li><a href="romance.html">ROMANCE</a></li>
+      <li><a href="#">PROMOTIONS</a></li>
+      <li><a href="#">ON SALE</a></li>
+      <li><a href="#">POPULAR NOVELS</a></li>
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main Genre Grid -->
   <main>
-    <!-- Promotions Carousel -->
-    <section class="PROMOTIONS">
-      <h2>PROMOTIONS</h2>
-      <div class="carousel-wrapper">
-        <div class="carousel-track" id="promotions-track">
-          <div class="carousel-slide">
-            <img src="book1.jpg" alt="Promo 1">
-            <img src="book2.jpg" alt="Promo 2">
-            <img src="book3.jpg" alt="Promo 3">
-            <img src="book4.jpg" alt="Promo 4">
-          </div>
-          <div class="carousel-slide">
-            <img src="book5.jpg" alt="Promo 5">
-            <img src="book6.jpg" alt="Promo 6">
-            <img src="book7.jpg" alt="Promo 7">
-            <img src="book8.jpg" alt="Promo 8">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sales Carousel -->
-    <section class="ON SALE">
-      <h2>ON SALE</h2>
-      <div class="carousel-wrapper">
-        <div class="carousel-track" id="sales-track">
-          <div class="carousel-slide">
-            <img src="sale1.jpg" alt="Sale 1">
-            <img src="sale2.jpg" alt="Sale 2">
-            <img src="sale3.jpg" alt="Sale 3">
-            <img src="sale4.jpg" alt="Sale 4">
-          </div>
-          <div class="carousel-slide">
-            <img src="sale5.jpg" alt="Sale 5">
-            <img src="sale6.jpg" alt="Sale 6">
-            <img src="sale7.jpg" alt="Sale 7">
-            <img src="sale8.jpg" alt="Sale 8">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Popular Novels -->
-    <section class="POPULAR NOVELS">
-      <h2>POPULAR NOVELS</h2>
-      <div class="carousel-wrapper">
-        <div class="carousel-track" id="popularnovels-track">
-          <div class="carousel-slide">
-            <img src="novel1.jpg" alt="Pop 1">
-            <img src="novel2.jpg" alt="Pop 2">
-            <img src="Novel3.jpg" alt="Pop 3">
-            <img src="Novel4.jpg" alt="Pop 4">
-          </div>
-          <div class="carousel-slide">
-            <img src="Novel5.jpg" alt="Pop 5">
-            <img src="Novel6.jpg" alt="Pop 6">
-            <img src="Novel7.jpg" alt="Pop 7">
-            <img src="Novel8.jpg" alt="Pop 8">
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <h2>Browse by Genre</h2>
+    <div class="genre-grid">
+      <a href="documetaries.html" class="genre-box">DOCUMENTARIES</a>
+      <a href="thriller.html" class="genre-box">THRILLER</a>
+      <a href="romance.html" class="genre-box">ROMANCE</a>
+      <a href="horror.html" class="genre-box">HORROR</a>
+      <a href="selfd.html" class="genre-box">SELF DEVELOPMENT</a>
+      <a href="mystery.html" class="genre-box">MYSTERY</a>
+      <a href="drama.html" class="genre-box">DRAMA</a>
+      <a href="scifi.html" class="genre-box">SCI-FI</a>
+      <a href="fantasy.html" class="genre-box">FANTASY</a>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Noveleer. All rights reserved.</p>
   </footer>
-
-  <!-- Carousel Script -->
-  <script>
-    function startBatchCarousel(trackId) {
-      const track = document.getElementById(trackId);
-      const slides = track.children;
-      let index = 0;
-
-      setInterval(() => {
-        index = (index + 1) % slides.length;
-        track.style.transform = `translateX(-${index * 100}%)`;
-      }, 4000);
-    }
-
-    window.onload = () => {
-      startBatchCarousel('promotions-track');
-      startBatchCarousel('sales-track');
-    };
-  </script>
 
 </body>
 </html>
