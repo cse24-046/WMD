@@ -22,6 +22,9 @@
     color: #fff;
     font-size: 24px;
     text-decoration: none;
+    display:flex;
+    align-items: center;
+    gap: 20px;
   }
   
   /* Container */
