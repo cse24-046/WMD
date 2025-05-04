@@ -1,109 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NOVELEER</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVELEER - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <a href="#"><img src="profile-icon-white.png" alt="Profile" class="icon" /></a>
-    </div>
-    <div class="header-center">
-      <div class="logo">NOVELEER</div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search for books..." id="searchInput" />
-      </div>
-    </div>
-    <div class="header-right">
-      <a href="#"><img src="cart-icon-white.png" alt="Cart" class="icon" /></a>
-    </div>
-  </header>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                </a></li>
+            </ul>
+        </nav>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" placeholder="Search for books..." id="search-bar">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
 
-  <nav class="sub-nav">
-    <a href="#promotions">Promotions</a>
-    <a href="#on-sale">On Sale</a>
-    <a href="#popular-novels">Popular Novels</a>
-  </nav>
+        <!-- User Profile Icon -->
+        <div class="profile-icon">
+            <a href="account.html">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+    </header>
 
-  <main>
-    <section class="hero">
-      <h1>Welcome to NOVELEER</h1>
-      <p>Your one-stop shop for the best novels.</p>
-    </section>
+    <main>
+        <h1>Welcome to NOVELEER</h1>
+        <p>Your one-stop shop for the best novels.</p>
+        
+        <h2>Explore Genres</h2>
+        <div class="genre-grid">
+            <div class="genre-card" data-genre="Documentaries">
+                <a href="documentaries.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Doc.jpg" alt="Documentaries"></a>
+                <h3>Documentaries</h3>
+                <p class="genre-phrase">"Explore real stories that will change your perspective."</p>
+            </div>
+            <div class="genre-card" data-genre="Thriller">
+                <a href="thriller.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Thriller.jpeg" alt="Thriller"></a>
+                <h3>Thriller</h3>
+                <p class="genre-phrase">"Prepare for heart-pounding suspense and unexpected twists."</p>
+            </div>
+            <div class="genre-card" data-genre="Mystery">
+                <a href="mystery.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Myst.jpg" alt="Mystery"></a>
+                <h3>Mystery</h3>
+                <p class="genre-phrase">"Unravel secrets and dive into intriguing puzzles."</p>
+            </div>
+            <div class="genre-card" data-genre="Fantasy">
+                <a href="fantasy.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Fantasy.webp" alt="Fantasy"></a>
+                <h3>Fantasy</h3>
+                <p class="genre-phrase">"Enter magical worlds where anything is possible."</p>
+            </div>
+            <div class="genre-card" data-genre="Horror">
+                <a href="horror.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Horror.jpg" alt="Horror"></a>
+                <h3>Horror</h3>
+                <p class="genre-phrase">"Face your darkest fears in tales of terror."</p>
+            </div>
+            <div class="genre-card" data-genre="Self Development">
+                <a href="self-development.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Selfd.png" alt="Self Development"></a>
+                <h3>Self Development</h3>
+                <p class="genre-phrase">"Transform your life with insightful strategies and wisdom."</p>
+            </div>
+            <div class="genre-card" data-genre="Sci-Fi">
+                <a href="scifi.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Scifi.jpg" alt="Sci-Fi"></a>
+                <h3>Sci-Fi</h3>
+                <p class="genre-phrase">"Explore futuristic worlds beyond your wildest imagination."</p>
+            </div>
+            <div class="genre-card" data-genre="Drama">
+                <a href="drama.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Drama.jpg" alt="Drama"></a>
+                <h3>Drama</h3>
+                <p class="genre-phrase">"Feel the intensity of human emotions and deep stories."</p>
+            </div>
+            <div class="genre-card" data-genre="Romance">
+                <a href="romance.html"><img src="c:\Users\bianc\OneDrive\Documents\NOVELEER\Romance.jpg" alt="Romance"></a>
+                <h3>Romance</h3>
+                <p class="genre-phrase">"Fall in love with captivating love stories and passion."</p>
+            </div>
+        </div>
+    </main>
 
-    <section class="genre-grid">
-      <h2>Explore Genres</h2>
-      <div class="grid">
-        <div class="genre-card" data-genre="Documentaries"><h3>Documentaries</h3><p>Explore real stories that change your view.</p></div>
-        <div class="genre-card" data-genre="Thriller"><h3>Thriller</h3><p>Feel the suspense and unexpected twists.</p></div>
-        <div class="genre-card" data-genre="Mystery"><h3>Mystery</h3><p>Unravel deep secrets and puzzles.</p></div>
-        <div class="genre-card" data-genre="Fantasy"><h3>Fantasy</h3><p>Get lost in magical and unreal worlds.</p></div>
-        <div class="genre-card" data-genre="Horror"><h3>Horror</h3><p>Face your darkest fears in thrilling tales.</p></div>
-        <div class="genre-card" data-genre="Self Development"><h3>Self Development</h3><p>Grow with strategies and insight.</p></div>
-        <div class="genre-card" data-genre="Sci-Fi"><h3>Sci-Fi</h3><p>Experience futuristic adventures.</p></div>
-        <div class="genre-card" data-genre="Drama"><h3>Drama</h3><p>Dive into emotional human stories.</p></div>
-        <div class="genre-card" data-genre="Romance"><h3>Romance</h3><p>Fall for heartfelt love tales.</p></div>
-      </div>
-    </section>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms & Conditions</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="language.html">Language</a></li>
+                <li><a href="currency.html">Currency</a></li>
+            </ul>
+        </nav>
 
-    <section id="promotions" class="promotions">
-      <h2>Promotions</h2>
-      <div class="book-row">
-        <div class="book">Promo Book 1</div>
-        <div class="book">Promo Book 2</div>
-        <div class="book">Promo Book 3</div>
-      </div>
-    </section>
+        <div class="social-media">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
 
-    <section id="on-sale" class="on-sale">
-      <h2>On Sale</h2>
-      <div class="book-row">
-        <div class="book">Sale Book 1</div>
-        <div class="book">Sale Book 2</div>
-        <div class="book">Sale Book 3</div>
-      </div>
-    </section>
-
-    <section id="popular-novels" class="popular-novels">
-      <h2>Popular Novels</h2>
-      <div class="book-row">
-        <div class="book">Popular Book 1</div>
-        <div class="book">Popular Book 2</div>
-        <div class="book">Popular Book 3</div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">FAQ</a>
-      <a href="#">Language</a>
-      <a href="#">Currency</a>
-    </div>
-    <div class="footer-social">
-      <a href="#"><img src="facebook-icon.png" alt="Facebook" /></a>
-      <a href="#"><img src="twitter-icon.png" alt="Twitter" /></a>
-      <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
-    </div>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.genre-card').forEach(card => {
-      card.addEventListener('click', () => {
-        alert(`You selected ${card.dataset.genre} books!`);
-      });
-    });
-
-    document.getElementById('searchInput').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        alert(`Searching for: ${this.value}`);
-      }
-    });
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const genreCards = document.querySelectorAll('.genre-card');
+            genreCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const genrePhrase = this.querySelector('.genre-phrase');
+                    genrePhrase.style.display = 'block';
+                });
+                card.addEventListener('mouseleave', function() {
+                    const genrePhrase = this.querySelector('.genre-phrase');
+                    genrePhrase.style.display = 'none';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
