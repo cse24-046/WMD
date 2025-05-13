@@ -10,72 +10,45 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">NOVELEER</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="sale.html">Sale & Promotions</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="popular.html">Popular Novels</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="profile.html">
-              <i class="fas fa-user-circle"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.html">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <!-- Header -->
   <header class="container py-3">
     <div class="d-flex justify-content-between align-items-center">
+      <!-- Profile Icon -->
+      <a href="profile.html" class="text-dark fs-4">
+        <i class="fas fa-user-circle"></i>
+      </a>
+
       <!-- Search Bar -->
       <div class="flex-grow-1 mx-3">
         <input type="text" class="form-control rounded-pill" placeholder="Search for books..." />
       </div>
 
-      <!-- Language/Country Flags -->
-      <div class="d-flex align-items-center">
-        <!-- Country Dropdown -->
-        <div class="dropdown me-3">
-          <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            🇺🇸 <span class="ms-1">USA</span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">🇬🇧 UK</a></li>
-            <li><a class="dropdown-item" href="#">🇪🇺 Europe</a></li>
-            <li><a class="dropdown-item" href="#">🇮🇳 India</a></li>
-          </ul>
-        </div>
+      <!-- Icons on right -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- Language/Country Flag -->
+        <a href="#" class="text-dark fs-5 d-flex align-items-center">
+          🌐 <span class="ms-1">EN</span>
+        </a>
 
-        <!-- Language Dropdown -->
-        <div class="dropdown">
-          <button class="btn btn-outline-dark dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            🌐 <span class="ms-1">EN</span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-            <li><a class="dropdown-item" href="#">EN</a></li>
-            <li><a class="dropdown-item" href="#">ES</a></li>
-            <li><a class="dropdown-item" href="#">FR</a></li>
-          </ul>
-        </div>
+        <!-- Cart Icon -->
+        <a href="cart.html" class="text-dark fs-4">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
       </div>
     </div>
   </header>
+
+  <!-- Navigation Bar -->
+  <nav class="container py-2">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="sale.html">Sales & Promotions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="popular.html">Popular Novels</a>
+      </li>
+    </ul>
+  </nav>
 
   <!-- Main Content -->
   <main class="container text-center my-4">
@@ -87,99 +60,116 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
       <!-- Genre Cards -->
       <div class="col">
-        <div class="card h-100">
-          <img src="images/doc.jpg" class="card-img-top" alt="Documentaries" />
-          <div class="card-body">
-            <h5 class="card-title">Documentaries</h5>
-            <p class="card-text">Explore real stories that will change your perspective.</p>
+        <a href="genre-documentaries.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/doc.jpg" class="card-img-top" alt="Documentaries" />
+            <div class="card-body">
+              <h5 class="card-title">Documentaries</h5>
+              <p class="card-text">Explore real stories that will change your perspective.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/thriller.jpg" class="card-img-top" alt="Thriller" />
-          <div class="card-body">
-            <h5 class="card-title">Thriller</h5>
-            <p class="card-text">Prepare for heart-pounding suspense and unexpected twists.</p>
+        <a href="genre-thriller.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/thriller.jpg" class="card-img-top" alt="Thriller" />
+            <div class="card-body">
+              <h5 class="card-title">Thriller</h5>
+              <p class="card-text">Prepare for heart-pounding suspense and unexpected twists.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/mystery.jpg" class="card-img-top" alt="Mystery" />
-          <div class="card-body">
-            <h5 class="card-title">Mystery</h5>
-            <p class="card-text">Unravel secrets and dive into intriguing puzzles.</p>
+        <a href="genre-mystery.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/mystery.jpg" class="card-img-top" alt="Mystery" />
+            <div class="card-body">
+              <h5 class="card-title">Mystery</h5>
+              <p class="card-text">Unravel secrets and dive into intriguing puzzles.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/fantasy.jpg" class="card-img-top" alt="Fantasy" />
-          <div class="card-body">
-            <h5 class="card-title">Fantasy</h5>
-            <p class="card-text">Enter magical worlds where anything is possible.</p>
+        <a href="genre-fantasy.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/fantasy.jpg" class="card-img-top" alt="Fantasy" />
+            <div class="card-body">
+              <h5 class="card-title">Fantasy</h5>
+              <p class="card-text">Enter magical worlds where anything is possible.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/horror.jpg" class="card-img-top" alt="Horror" />
-          <div class="card-body">
-            <h5 class="card-title">Horror</h5>
-            <p class="card-text">Face your darkest fears in tales of terror.</p>
+        <a href="genre-horror.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/horror.jpg" class="card-img-top" alt="Horror" />
+            <div class="card-body">
+              <h5 class="card-title">Horror</h5>
+              <p class="card-text">Face your darkest fears in tales of terror.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/selfd.jpg" class="card-img-top" alt="Self Development" />
-          <div class="card-body">
-            <h5 class="card-title">Self Development</h5>
-            <p class="card-text">Transform your life with insightful strategies and wisdom.</p>
+        <a href="genre-self-development.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/selfd.jpg" class="card-img-top" alt="Self Development" />
+            <div class="card-body">
+              <h5 class="card-title">Self Development</h5>
+              <p class="card-text">Transform your life with insightful strategies and wisdom.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/scifi.jpg" class="card-img-top" alt="Sci-Fi" />
-          <div class="card-body">
-            <h5 class="card-title">Sci-Fi</h5>
-            <p class="card-text">Explore futuristic worlds beyond your wildest imagination.</p>
+        <a href="genre-scifi.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/scifi.jpg" class="card-img-top" alt="Sci-Fi" />
+            <div class="card-body">
+              <h5 class="card-title">Sci-Fi</h5>
+              <p class="card-text">Explore futuristic worlds beyond your wildest imagination.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/drama.jpg" class="card-img-top" alt="Drama" />
-          <div class="card-body">
-            <h5 class="card-title">Drama</h5>
-            <p class="card-text">Feel the intensity of human emotions and deep stories.</p>
+        <a href="genre-drama.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/drama.jpg" class="card-img-top" alt="Drama" />
+            <div class="card-body">
+              <h5 class="card-title">Drama</h5>
+              <p class="card-text">Feel the intensity of human emotions and deep stories.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col">
-        <div class="card h-100">
-          <img src="images/romance.jpg" class="card-img-top" alt="Romance" />
-          <div class="card-body">
-            <h5 class="card-title">Romance</h5>
-            <p class="card-text">Fall in love with captivating love stories and passion.</p>
+        <a href="genre-romance.html" class="text-decoration-none">
+          <div class="card h-100 shadow-sm border-0 hover-scale">
+            <img src="images/romance.jpg" class="card-img-top" alt="Romance" />
+            <div class="card-body">
+              <h5 class="card-title">Romance</h5>
+              <p class="card-text">Fall in love with captivating love stories and passion.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </main>
 
-  <!-- Footer with Social Media Icons -->
+  <!-- Footer -->
   <footer class="text-center py-4 text-muted">
-    <div class="d-flex justify-content-center gap-4 mb-3">
-      <!-- Social Media Icons -->
-      <a href="#" class="text-dark fs-4"><i class="fab fa-facebook-square"></i></a>
-      <a href="#" class="text-dark fs-4"><i class="fab fa-twitter-square"></i></a>
-      <a href="#" class="text-dark fs-4"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-dark fs-4"><i class="fab fa-linkedin"></i></a>
+    &copy; 2025 NOVELEER. All rights reserved.
+    <div class="social-icons mt-3">
+      <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
     </div>
-    <p>&copy; 2025 NOVELEER. All rights reserved.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

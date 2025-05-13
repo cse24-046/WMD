@@ -1,62 +1,76 @@
-/* Base colors */
-:root {
-    --primary-color: #333; /* Dark gray for general text */
-    --accent-color: #f1f1f1; /* Light gray for background */
-    --highlight-color: #f79c42; /* Orange accent color for buttons and links */
-    --footer-bg: #212121; /* Dark footer */
-    --card-bg: #ffffff; /* White background for cards */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
   }
   
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+  .container {
+    max-width: 1200px;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header a {
+    color: #333;
+    text-decoration: none;
   }
   
   /* Navigation Bar */
-  .navbar-dark .navbar-nav .nav-link {
-    color: var(--highlight-color);
+  nav {
+    background-color: #f8f9fa;
+    margin-bottom: 30px;
   }
   
-  .navbar-dark .navbar-nav .nav-link:hover {
-    color: var(--primary-color);
+  nav .nav-link {
+    color: #333;
+    font-weight: bold;
   }
   
-  /* Card Styles */
+  nav .nav-link:hover {
+    color: #007bff;
+  }
+  
+  /* Genre Cards Styles */
   .card {
-    background-color: var(--card-bg);
-    border: 1px solid #ddd;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .card:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   
-  /* Footer */
+  .card-img-top {
+    transition: opacity 0.3s ease;
+  }
+  
+  .card:hover .card-img-top {
+    opacity: 0.9;
+  }
+  
+  /* Optional: Adding a darker overlay on hover */
+  .card:hover .card-body {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer Styles */
   footer {
-    background-color: var(--footer-bg);
-    color: var(--accent-color);
+    background-color: #fff;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* Search Bar */
-  input[type="text"] {
-    background-color: var(--accent-color);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-  }
-  
-  input[type="text"]:focus {
-    border-color: var(--highlight-color);
-  }
-  
-  /* Modify links in the content area */
-  a {
-    color: var(--highlight-color);
+  footer .social-icons a {
+    color: #333;
+    font-size: 20px;
     text-decoration: none;
   }
   
-  a:hover {
-    color: var(--primary-color);
+  footer .social-icons a:hover {
+    color: #007bff;
   }
   
