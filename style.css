@@ -1,76 +1,145 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #48525c;
-    color: #333;
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   
-  .container {
-    max-width: 1200px;
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #111;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
   }
   
-  /* Header Styles */
+  /* Blurry Background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('c:\Users\bianc\OneDrive - Botswana Accountancy College\WMD assignment\bookshelf.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -2;
+  }
+  
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* dark overlay */
+    z-index: -1;
+  }
+  
+  /* Header */
   header {
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  header a {
-    color: #333;
-    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
   
   /* Navigation Bar */
-  nav {
-    background-color: #f8f9fa;
-    margin-bottom: 30px;
+  .navbar-custom {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
   }
   
-  nav .nav-link {
-    color: #333;
-    font-weight: bold;
+  .navbar-custom a {
+    color: #111;
+    font-weight: 500;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
   }
   
-  nav .nav-link:hover {
+  .navbar-custom a:hover {
     color: #007bff;
   }
   
-  /* Genre Cards Styles */
+  /* Search Bar */
+  input.form-control {
+    border-radius: 50px;
+  }
+  
+  /* Genre Cards */
   .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
   }
   
   .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   }
   
-  .card-img-top {
-    transition: opacity 0.3s ease;
+  .card img {
+    height: 200px;
+    object-fit: cover;
   }
   
-  .card:hover .card-img-top {
-    opacity: 0.9;
+  .card-title {
+    font-weight: bold;
   }
   
-  /* Optional: Adding a darker overlay on hover */
-  .card:hover .card-body {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Footer Styles */
+  /* Footer */
   footer {
-    background-color: #fff;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+    margin-top: 40px;
+  }
+  
+  footer .social-icons {
+    margin-top: 10px;
   }
   
   footer .social-icons a {
-    color: #333;
     font-size: 20px;
-    text-decoration: none;
+    margin: 0 10px;
+    color: #111;
+    transition: color 0.3s ease;
   }
   
   footer .social-icons a:hover {
     color: #007bff;
+  }
+  
+  /* Country and Language Select */
+  select.language-select,
+  select.country-select {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .navbar-custom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar-custom a {
+      margin: 5px 0;
+    }
+  
+    .card img {
+      height: 160px;
+    }
   }
   
