@@ -9,7 +9,7 @@ body, html {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
   color: white;
-  background: url('images/bookshelf-blur.jpg') no-repeat center center fixed;
+  background: url('https://i.pinimg.com/736x/60/ac/a0/60aca02acc9ad62c889a1767220cc1ff.jpg') no-repeat center center fixed;
   background-size: cover;
   overflow-x: hidden;
 }
