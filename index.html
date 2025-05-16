@@ -8,13 +8,16 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
-<body>
+<body class="bg-blur text-white">
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
   <!-- Header -->
-  <header class="container py-3">
+  <header class="container py-3 position-relative">
     <div class="d-flex justify-content-between align-items-center">
       <!-- Profile Icon -->
-      <a href="profile.html" class="text-dark fs-4">
+      <a href="profile.html" class="text-white fs-4">
         <i class="fas fa-user-circle"></i>
       </a>
 
@@ -25,13 +28,13 @@
 
       <!-- Icons on right -->
       <div class="d-flex align-items-center gap-3">
-        <!-- Language/Country Flag -->
-        <a href="#" class="text-dark fs-5 d-flex align-items-center">
-          🌐 <span class="ms-1">EN</span>
+        <!-- Language Icon -->
+        <a href="#" class="text-white fs-5 d-flex align-items-center">
+          <i class="fas fa-globe-americas me-1"></i> <span>EN</span>
         </a>
 
         <!-- Cart Icon -->
-        <a href="cart.html" class="text-dark fs-4">
+        <a href="cart.html" class="text-white fs-4">
           <i class="fas fa-shopping-cart"></i>
         </a>
       </div>
@@ -39,29 +42,29 @@
   </header>
 
   <!-- Navigation Bar -->
-  <nav class="container py-2">
+  <nav class="container py-2 position-relative">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" href="sale.html">Sales & Promotions</a>
+        <a class="nav-link text-white" href="sale.html">Sales & Promotions</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="popular.html">Popular Novels</a>
+        <a class="nav-link text-white" href="popular.html">Popular Novels</a>
       </li>
     </ul>
   </nav>
 
   <!-- Main Content -->
-  <main class="container text-center my-4">
-    <h1 class="fw-bold">Welcome to NOVELEER</h1>
-    <p class="text-muted">Your one-stop shop for the best novels.</p>
+  <main class="container text-center my-4 position-relative">
+    <h1 class="fw-bold display-4">Welcome to NOVELEER</h1>
+    <p class="text-light fs-5">Your one-stop shop for the best novels.</p>
 
     <h2 class="mt-5 mb-4 fw-bold">Explore Genres</h2>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
       <!-- Genre Cards -->
       <div class="col">
-        <a href="genre-documentaries.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="documentaries.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/doc.jpg" class="card-img-top" alt="Documentaries" />
             <div class="card-body">
               <h5 class="card-title">Documentaries</h5>
@@ -71,8 +74,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-thriller.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="thriller.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/thriller.jpg" class="card-img-top" alt="Thriller" />
             <div class="card-body">
               <h5 class="card-title">Thriller</h5>
@@ -82,8 +85,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-mystery.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="mystery.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/mystery.jpg" class="card-img-top" alt="Mystery" />
             <div class="card-body">
               <h5 class="card-title">Mystery</h5>
@@ -93,8 +96,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-fantasy.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="fantasy.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/fantasy.jpg" class="card-img-top" alt="Fantasy" />
             <div class="card-body">
               <h5 class="card-title">Fantasy</h5>
@@ -104,8 +107,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-horror.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="horror.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/horror.jpg" class="card-img-top" alt="Horror" />
             <div class="card-body">
               <h5 class="card-title">Horror</h5>
@@ -115,8 +118,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-self-development.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="selfd.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/selfd.jpg" class="card-img-top" alt="Self Development" />
             <div class="card-body">
               <h5 class="card-title">Self Development</h5>
@@ -126,8 +129,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-scifi.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="scifi.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/scifi.jpg" class="card-img-top" alt="Sci-Fi" />
             <div class="card-body">
               <h5 class="card-title">Sci-Fi</h5>
@@ -137,8 +140,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-drama.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="drama.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/drama.jpg" class="card-img-top" alt="Drama" />
             <div class="card-body">
               <h5 class="card-title">Drama</h5>
@@ -148,8 +151,8 @@
         </a>
       </div>
       <div class="col">
-        <a href="genre-romance.html" class="text-decoration-none">
-          <div class="card h-100 shadow-sm border-0 hover-scale">
+        <a href="romance.html" class="text-decoration-none text-white">
+          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
             <img src="images/romance.jpg" class="card-img-top" alt="Romance" />
             <div class="card-body">
               <h5 class="card-title">Romance</h5>
@@ -162,13 +165,13 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-4 text-muted">
+  <footer class="text-center py-4 text-white position-relative">
     &copy; 2025 NOVELEER. All rights reserved.
     <div class="social-icons mt-3">
-      <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
     </div>
   </footer>
 
