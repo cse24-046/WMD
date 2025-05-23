@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVODIA - Membership</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="text-gray-800">
+  <header class="bg-gradient-to-r from-rose-800 to-purple-900 text-white p-4 shadow-lg">
+    <div class="container mx-auto flex items-center justify-center relative">
+      <a href="profile.html" class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-rose-700 hover:bg-rose-800 transition duration-300 ease-in-out">
+        <i class="fas fa-arrow-left text-xl"></i>
+      </a>
+      <h1 class="text-2xl font-bold font-evodia">MEMBERSHIP</h1>
+    </div>
+  </header>
+
+  <!-- <nav class="bg-rose-900 text-white py-3 shadow-md">
+    <div class="container mx-auto">
+      <ul class="flex flex-wrap justify-center space-x-6">
+        <li><a href="index.html" class="hover:text-pink-300 transition duration-300 ease-in-out text-lg font-medium">HOME</a></li>
+        <li><a href="profile.html" class="hover:text-pink-300 transition duration-300 ease-in-out text-lg font-medium">PROFILE</a></li>
+        <li><a href="#" class="hover:text-pink-300 transition duration-300 ease-in-out text-lg font-medium">FAQ</a></li>
+      </ul>
+    </div>
+  </nav> -->
+
+  <main class="container mx-auto px-4 py-8">
+
+    <section class="membership-container bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+
+      <h3 class="text-2xl font-bold text-center text-purple-800 mb-6 border-b-2 border-rose-200 pb-3">Payment Information</h3>
+      <form id="paymentForm" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="form-group sm:col-span-2">
+            <label for="cardNumber" class="block text-gray-700 text-sm font-medium mb-2">Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="**** **** **** ****" required pattern="[0-9]{13,16}" title="Card number must be 13-16 digits" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 transition duration-200 ease-in-out">
+          </div>
+          <div class="form-group">
+            <label for="expiryDate" class="block text-gray-700 text-sm font-medium mb-2">Expiry Date</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/?([0-9]{2})" title="Expiry date must be in MM/YY format" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 transition duration-200 ease-in-out">
+          </div>
+          <div class="form-group">
+            <label for="cvv" class="block text-gray-700 text-sm font-medium mb-2">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="***" required pattern="[0-9]{3,4}" title="CVV must be 3 or 4 digits" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 transition duration-200 ease-in-out">
+          </div>
+        </div>
+        <button type="submit" id="paymentActionButton" class="button-primary w-full py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg">Subscribe Now</button>
+      </form>
+
+      <h3 class="text-2xl font-bold text-center text-purple-800 mt-10 mb-6 border-b-2 border-rose-200 pb-3">Manage Subscription</h3>
+      <button id="cancelMembershipBtn" class="button-danger w-full py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg">Cancel Membership</button>
+    </section>
+
+  </main>
+
+  <footer class="bg-rose-900 text-white py-6 shadow-inner">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4">
+      <div class="social-links flex space-x-6 mb-4 sm:mb-0 text-2xl">
+        <a href="#" class="hover:text-pink-300 transition duration-300 ease-in-out" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-pink-300 transition duration-300 ease-in-out" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-pink-300 transition duration-300 ease-in-out" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <button onclick="window.location.href='feedback.html'" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-5 rounded-md shadow-lg transition duration-300 ease-in-out transform hover:scale-105">Give Feedback</button>
+    </div>
+  </footer>
+
+  <div id="customModalOverlay" class="modal-overlay">
+    <div id="customModalContent" class="modal-content">
+      <h4 id="modalTitle"></h4>
+      <p id="modalMessage"></p>
+      <div id="modalButtons" class="modal-buttons">
+        </div>
+    </div>
+  </div>
+
+  <script>
+    const membershipStatusDiv = document.getElementById('membershipStatus');
+    const paymentActionButton = document.getElementById('paymentActionButton');
+    const cancelMembershipBtn = document.getElementById('cancelMembershipBtn');
+    const modalOverlay = document.getElementById('customModalOverlay');
+    const modalContent = document.getElementById('customModalContent');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    const modalButtons = document.getElementById('modalButtons');
+
+    let isMember = false; // Initial membership status, will be fetched from backend in a real app
+    let confirmCallback = null; // Stores the callback for confirmation modals
+
+    // Function to update membership status display and button text
+    function updateMembershipUI() {
+      if (isMember) {
+        membershipStatusDiv.textContent = 'You are currently a Premium Member!';
+        membershipStatusDiv.classList.remove('inactive');
+        membershipStatusDiv.classList.add('active');
+        paymentActionButton.textContent = 'Update Payment Method';
+      } else {
+        membershipStatusDiv.textContent = 'You are not currently subscribed.';
+        membershipStatusDiv.classList.remove('active');
+        membershipStatusDiv.classList.add('inactive');
+        paymentActionButton.textContent = 'Subscribe Now';
+      }
+    }
+
+    // Function to show the custom modal
+    function showCustomModal(title, message, type, callback = null) {
+      modalTitle.textContent = title;
+      modalMessage.textContent = message;
+      modalButtons.innerHTML = ''; // Clear previous buttons
+
+      if (type === 'confirm') {
+        confirmCallback = callback;
+        const confirmBtn = document.createElement('button');
+        confirmBtn.textContent = 'Confirm';
+        confirmBtn.classList.add('modal-button', 'confirm');
+        confirmBtn.addEventListener('click', () => {
+          if (confirmCallback) confirmCallback();
+          hideCustomModal();
+        });
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.textContent = 'Cancel';
+        cancelBtn.classList.add('modal-button', 'cancel');
+        cancelBtn.addEventListener('click', hideCustomModal);
+
+        modalButtons.appendChild(confirmBtn);
+        modalButtons.appendChild(cancelBtn);
+      } else { // 'success' or 'info' type
+        const okBtn = document.createElement('button');
+        okBtn.textContent = 'OK';
+        okBtn.classList.add('modal-button', 'confirm'); // Using confirm style for OK button
+        okBtn.addEventListener('click', hideCustomModal);
+        modalButtons.appendChild(okBtn);
+      }
+
+      modalOverlay.classList.add('active');
+    }
+
+    // Function to hide the custom modal
+    function hideCustomModal() {
+      modalOverlay.classList.remove('active');
+      confirmCallback = null; // Clear callback
+    }
+
+    // Event listener for payment form submission
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const cardNumber = document.getElementById('cardNumber').value;
+      const expiryDate = document.getElementById('expiryDate').value;
+      const cvv = document.getElementById('cvv').value;
+
+      console.log('Payment Information Submitted:');
+      console.log('Card Number:', cardNumber);
+      console.log('Expiry Date:', expiryDate);
+      console.log('CVV:', cvv);
+
+      // Simulate API call success/failure
+      const paymentSuccess = true; // In a real app, this would depend on backend response
+
+      if (paymentSuccess) {
+        showCustomModal('Success!', 'Your payment method has been updated and membership is active.', 'success');
+        isMember = true; // Update status
+        updateMembershipUI(); // Reflect changes in UI
+      } else {
+        showCustomModal('Error', 'There was an issue processing your payment. Please try again.', 'success'); // Using success type for simple error message
+      }
+    });
+
+    // Event listener for cancel membership button
+    cancelMembershipBtn.addEventListener('click', function() {
+      showCustomModal(
+        'Confirm Cancellation',
+        'Are you sure you want to cancel your Premium Membership? This action cannot be undone.',
+        'confirm',
+        () => {
+          // This code runs if the user clicks 'Confirm' in the modal
+          console.log('Membership cancellation confirmed.');
+          // Simulate API call for cancellation
+          const cancellationSuccess = true; // In a real app, this would depend on backend response
+
+          if (cancellationSuccess) {
+            showCustomModal('Membership Cancelled', 'Your Premium Membership has been successfully cancelled.', 'success');
+            isMember = false; // Update status
+            updateMembershipUI(); // Reflect changes in UI
+          } else {
+            showCustomModal('Error', 'Failed to cancel membership. Please try again later.', 'success');
+          }
+        }
+      );
+    });
+
+    // Initialize UI on page load
+    document.addEventListener('DOMContentLoaded', updateMembershipUI);
+  </script>
+</body>
+</html>
