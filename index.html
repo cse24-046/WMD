@@ -1,180 +1,272 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NOVELEER - Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-</head>
-<body class="bg-blur text-white">
+  <title>Noveleer - Bookstore</title>
 
-  <!-- Overlay -->
-  <div class="overlay"></div>
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+  }
+
+  .logo {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .logo h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .icon-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .icon-group a {
+    font-size: 24px;
+    color: white;
+  }
+
+  nav {
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+
+  nav ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    color: #ff8c00;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  section {
+    padding: 30px 0 20px;
+  }
+
+  h2 {
+    color: #ff8c00;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .carousel-wrapper {
+    overflow: hidden;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-slide {
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .carousel-slide img {
+    width: 23%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+
+  .novel-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #f5f5f5;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 20px;
+  }
+
+  footer p {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
 
   <!-- Header -->
-  <header class="container py-3 position-relative">
-    <div class="d-flex justify-content-between align-items-center">
-      <!-- Profile Icon -->
-      <a href="profile.html" class="text-white fs-4">
-        <i class="fas fa-user-circle"></i>
-      </a>
-
-      <!-- Search Bar -->
-      <div class="flex-grow-1 mx-3">
-        <input type="text" class="form-control rounded-pill" placeholder="Search for books..." />
-      </div>
-
-      <!-- Icons on right -->
-      <div class="d-flex align-items-center gap-3">
-        <!-- Language Icon -->
-        <a href="#" class="text-white fs-5 d-flex align-items-center">
-          <i class="fas fa-globe-americas me-1"></i> <span>EN</span>
-        </a>
-
-        <!-- Cart Icon -->
-        <a href="cart.html" class="text-white fs-4">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-      </div>
+  <header>
+    <div class="icon-group">
+      <a href="profile.html"><i class="fas fa-user-circle"></i></a>
+    </div>
+<h1>NOVELEER</h1>
+    <div class="icon-group">
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
     </div>
   </header>
 
-  <!-- Navigation Bar -->
-  <nav class="container py-2 position-relative">
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link text-white" href="sale.html">Sales & Promotions</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="popular.html">Popular Novels</a>
-      </li>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="documetaries.html">DOCUMENTARIES</a></li>
+      <li><a href="thriller.html">THRILLER</a></li>
+      <li><a href="fantasy.html">FANTASY</a></li>
+      <li><a href="mystery.html">MYSTERY</a></li>
+      <li><a href="scifi.html">SCI-FI</a></li>
+      <li><a href="selfd.html">SELF DEVELOPMENT</a></li>
+      <li><a href="horror.html">HORROR</a></li>
+      <li><a href="drama.html">DRAMA</a></li>
+      <li><a href="romance.html">ROMANCE</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
-  <main class="container text-center my-4 position-relative">
-    <h1 class="fw-bold display-4">Welcome to NOVELEER</h1>
-    <p class="text-light fs-5">Your one-stop shop for the best novels.</p>
+  <main>
+    <!-- Promotions Carousel -->
+    <section class="PROMOTIONS">
+      <h2>PROMOTIONS</h2>
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="promotions-track">
+          <div class="carousel-slide">
+            <img src="book1.jpg" alt="Promo 1">
+            <img src="book2.jpg" alt="Promo 2">
+            <img src="book3.jpg" alt="Promo 3">
+            <img src="book4.jpg" alt="Promo 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="book5.jpg" alt="Promo 5">
+            <img src="book6.jpg" alt="Promo 6">
+            <img src="book7.jpg" alt="Promo 7">
+            <img src="book8.jpg" alt="Promo 8">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2 class="mt-5 mb-4 fw-bold">Explore Genres</h2>
+    <!-- Sales Carousel -->
+    <section class="ON SALE">
+      <h2>ON SALE</h2>
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="sales-track">
+          <div class="carousel-slide">
+            <img src="sale1.jpg" alt="Sale 1">
+            <img src="sale2.jpg" alt="Sale 2">
+            <img src="sale3.jpg" alt="Sale 3">
+            <img src="sale4.jpg" alt="Sale 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="sale5.jpg" alt="Sale 5">
+            <img src="sale6.jpg" alt="Sale 6">
+            <img src="sale7.jpg" alt="Sale 7">
+            <img src="sale8.jpg" alt="Sale 8">
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-      <!-- Genre Cards -->
-      <div class="col">
-        <a href="documentaries.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/doc.jpg" class="card-img-top" alt="Documentaries" />
-            <div class="card-body">
-              <h5 class="card-title">Documentaries</h5>
-              <p class="card-text">Explore real stories that will change your perspective.</p>
-            </div>
+    <!-- Popular Novels -->
+    <section class="POPULAR NOVELS">
+      <h2>POPULAR NOVELS</h2>
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="popularnovels-track">
+          <div class="carousel-slide">
+            <img src="novel1.jpg" alt="Pop 1">
+            <img src="novel2.jpg" alt="Pop 2">
+            <img src="Novel3.jpg" alt="Pop 3">
+            <img src="Novel4.jpg" alt="Pop 4">
           </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="thriller.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/thriller.jpg" class="card-img-top" alt="Thriller" />
-            <div class="card-body">
-              <h5 class="card-title">Thriller</h5>
-              <p class="card-text">Prepare for heart-pounding suspense and unexpected twists.</p>
-            </div>
+          <div class="carousel-slide">
+            <img src="Novel5.jpg" alt="Pop 5">
+            <img src="Novel6.jpg" alt="Pop 6">
+            <img src="Novel7.jpg" alt="Pop 7">
+            <img src="Novel8.jpg" alt="Pop 8">
           </div>
-        </a>
+        </div>
       </div>
-      <div class="col">
-        <a href="mystery.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/mystery.jpg" class="card-img-top" alt="Mystery" />
-            <div class="card-body">
-              <h5 class="card-title">Mystery</h5>
-              <p class="card-text">Unravel secrets and dive into intriguing puzzles.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="fantasy.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/fantasy.jpg" class="card-img-top" alt="Fantasy" />
-            <div class="card-body">
-              <h5 class="card-title">Fantasy</h5>
-              <p class="card-text">Enter magical worlds where anything is possible.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="horror.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/horror.jpg" class="card-img-top" alt="Horror" />
-            <div class="card-body">
-              <h5 class="card-title">Horror</h5>
-              <p class="card-text">Face your darkest fears in tales of terror.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="selfd.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/selfd.jpg" class="card-img-top" alt="Self Development" />
-            <div class="card-body">
-              <h5 class="card-title">Self Development</h5>
-              <p class="card-text">Transform your life with insightful strategies and wisdom.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="scifi.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/scifi.jpg" class="card-img-top" alt="Sci-Fi" />
-            <div class="card-body">
-              <h5 class="card-title">Sci-Fi</h5>
-              <p class="card-text">Explore futuristic worlds beyond your wildest imagination.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="drama.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/drama.jpg" class="card-img-top" alt="Drama" />
-            <div class="card-body">
-              <h5 class="card-title">Drama</h5>
-              <p class="card-text">Feel the intensity of human emotions and deep stories.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col">
-        <a href="romance.html" class="text-decoration-none text-white">
-          <div class="card h-100 shadow border-0 bg-dark bg-opacity-75 hover-scale">
-            <img src="images/romance.jpg" class="card-img-top" alt="Romance" />
-            <div class="card-body">
-              <h5 class="card-title">Romance</h5>
-              <p class="card-text">Fall in love with captivating love stories and passion.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
-  <footer class="text-center py-4 text-white position-relative">
-    &copy; 2025 NOVELEER. All rights reserved.
-    <div class="social-icons mt-3">
-      <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-    </div>
+  <footer>
+    <p>&copy; 2025 Noveleer. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Carousel Script -->
+  <script>
+    function startBatchCarousel(trackId) {
+      const track = document.getElementById(trackId);
+      const slides = track.children;
+      let index = 0;
+
+      setInterval(() => {
+        index = (index + 1) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }, 4000);
+    }
+
+    window.onload = () => {
+      startBatchCarousel('promotions-track');
+      startBatchCarousel('sales-track');
+      startBatchCarousel('popularnovels-track');
+    };
+  </script>
+
 </body>
 </html>

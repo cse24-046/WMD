@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Documentaries - Noveleer</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cat.css">
+
+</head>
+
+<body>
+  <header>
+   <div class="back-btn">
+     <a href="index.html"><i class="fas fa-arrow-left"></i></a>
+   </div>
+   <h1>DOCUMENTARIES</h1>
+  </header>
+
+
+  <div class="container">
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="" />
+      <button onclick="searchDocumentaries()">Search</button>
+    </div>
+
+    <!-- Documentaries List -->
+    <ul class="novel-list" id="novelList"></ul>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <a href="#" id="prevPage" onclick="changePage(-1)">« Previous</a>
+      <a href="#" id="nextPage" onclick="changePage(1)">Next »</a>
+    </div>
+  </div>
+
+  <script>
+      const documentaries = [
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        
+    ];
+
+    let currentPage = 1;
+    const itemsPerPage = 12;
+
+    function displayDocumentaries(page) {
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = page * itemsPerPage;
+      const docsToDisplay = documentaries.slice(startIndex, endIndex);
+      const list = document.getElementById("novelList");
+
+      list.innerHTML = '';
+
+      docsToDisplay.forEach(doc => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <img src="${doc.image}" alt="${doc.name}">
+          <div class="novel-info">
+            <h3>${doc.name}</h3>
+            <p class="price">${doc.price}</p>
+            <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
+          </div>
+        `;
+        listItem.querySelector('.add-to-cart').addEventListener('click', addToCart);
+        list.appendChild(listItem);
+      });
+
+      togglePagination();
+    }
+
+    function changePage(direction) {
+      currentPage += direction;
+      displayDocumentaries(currentPage);
+    }
+
+    function togglePagination() {
+      const prevPageButton = document.getElementById("prevPage");
+      const nextPageButton = document.getElementById("nextPage");
+
+      prevPageButton.style.display = currentPage === 1 ? 'none' : 'inline';
+      nextPageButton.style.display = currentPage * itemsPerPage < documentaries.length ? 'inline' : 'none';
+    }
+
+    function searchDocumentaries() {
+      const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+      const filteredDocs = documentaries.filter(doc => doc.name.toLowerCase().includes(searchQuery));
+      const list = document.getElementById("novelList");
+
+      list.innerHTML = '';
+
+      filteredDocs.forEach(doc => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <img src="${doc.image}" alt="${doc.name}">
+          <div class="novel-info">
+            <h3>${doc.name}</h3>
+            <p class="price">${doc.price}</p>
+            <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
+          </div>
+        `;
+        listItem.querySelector('.add-to-cart').addEventListener('click', addToCart);
+        list.appendChild(listItem);
+      });
+    }
+
+    function addToCart(event) {
+      const button = event.target;
+      const name = button.getAttribute('data-name');
+      const price = button.getAttribute('data-price');
+      const image = button.getAttribute('data-image');
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price, image });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} has been added to your cart!`);
+    }
+
+    displayDocumentaries(currentPage);
+  </script>
+</body>
+</html>

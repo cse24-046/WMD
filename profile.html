@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - Noveleer</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .back-button {
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    input, select {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      width: 100%;
+      background-color: #444;
+      color: #fff;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    select option {
+      background-color: #444;
+      color: #fff;
+    }
+
+    .phone-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .phone-group select {
+      flex: 1;
+    }
+
+    .phone-group input {
+      flex: 2;
+    }
+
+    button {
+      background-color: #ff8c00;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e67e00;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header with back button -->
+  <header>
+    <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
+  </header>
+
+  <!-- Main Profile Form -->
+  <main>
+    <h2>PROFILE</h2>
+    <form>
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Your username">
+      </div>
+
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="your@email.com">
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Change password">
+      </div>
+
+      <div>
+        <label for="postal-address">Postal Address</label>
+        <input type="text" id="postal-address" placeholder="123 Book Lane">
+      </div>
+
+      <div>
+        <label for="zip-code">Zip Code</label>
+        <input type="text" id="zip-code" placeholder="12345">
+      </div>
+
+      <div>
+        <label for="city">City</label>
+        <input type="text" id="city" placeholder="City Name">
+      </div>
+
+      <div>
+        <label for="country">Country</label>
+        <select id="country">
+          <option value="">Select Country</option>
+          <option value="US">🇺🇸 United States</option>
+          <option value="UK">🇬🇧 United Kingdom</option>
+          <option value="CA">🇨🇦 Canada</option>
+          <option value="NG">🇳🇬 Nigeria</option>
+          <option value="ZA">🇿🇦 South Africa</option>
+          <option value="BW">🇧🇼 Botswana</option>
+          <option value="IN">🇮🇳 India</option>
+          <option value="DE">🇩🇪 Germany</option>
+          <option value="FR">🇫🇷 France</option>
+          <option value="IT">🇮🇹 Italy</option>
+          <option value="JP">🇯🇵 Japan</option>
+          <option value="CN">🇨🇳 China</option>
+          <option value="BR">🇧🇷 Brazil</option>
+          <option value="AU">🇦🇺 Australia</option>
+          <option value="MX">🇲🇽 Mexico</option>
+          <option value="EG">🇪🇬 Egypt</option>
+          <option value="KE">🇰🇪 Kenya</option>
+          <option value="GH">🇬🇭 Ghana</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="phone">Phone Number</label>
+        <div class="phone-group">
+          <select>
+            <option>+1 🇺🇸</option>
+            <option>+44 🇬🇧</option>
+            <option>+234 🇳🇬</option>
+            <option>+27 🇿🇦</option>
+            <option>+267 🇧🇼</option>
+            <option>+91 🇮🇳</option>
+            <option>+49 🇩🇪</option>
+            <option>+33 🇫🇷</option>
+            <option>+81 🇯🇵</option>
+            <option>+86 🇨🇳</option>
+            <option>+55 🇧🇷</option>
+            <option>+61 🇦🇺</option>
+            <option>+52 🇲🇽</option>
+            <option>+20 🇪🇬</option>
+            <option>+254 🇰🇪</option>
+            <option>+233 🇬🇭</option>
+            <option>+39 🇮🇹</option>
+            <option>+1 🇨🇦</option>
+          </select>
+          <input type="tel" placeholder="Phone Number">
+        </div>
+      </div>
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </main>
+
+  <!-- ... your existing HTML above ... -->
+
+<!-- JavaScript Interactivity -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('form');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+  
+      form.addEventListener('submit', (e) => {
+        e.preventDefault(); // Stop default form submission
+  
+        // Simple validation
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+  
+        if (!email.includes('@') || !email.includes('.')) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+  
+        if (password.length < 6) {
+          alert('Password must be at least 6 characters.');
+          return;
+        }
+  
+        // If passed, show confirmation
+        alert('Profile updated successfully!');
+      });
+  
+      // Optional: Toggle password visibility
+      const togglePasswordBtn = document.createElement('button');
+      togglePasswordBtn.textContent = 'Show Password';
+      togglePasswordBtn.type = 'button';
+      togglePasswordBtn.style.marginTop = '8px';
+      togglePasswordBtn.style.background = 'transparent';
+      togglePasswordBtn.style.color = '#ff8c00';
+      togglePasswordBtn.style.border = 'none';
+      togglePasswordBtn.style.cursor = 'pointer';
+  
+      passwordInput.parentElement.appendChild(togglePasswordBtn);
+  
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        togglePasswordBtn.textContent = isPassword ? 'Hide Password' : 'Show Password';
+      });
+    });
+  </script>
+  
+
+</body>
+</html>

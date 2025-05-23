@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciFi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cat.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Sci-Fi</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><button onclick="window.history.back();" class="back-button"><i class="fas fa-arrow-left"></i></button></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="" />
+            <button onclick="searchSciFi()">Search</button>
+        </div>
+
+        <!-- Sci-Fi List -->
+        <ul class="novel-list" id="novelList">
+            <!-- Sci-Fi will be inserted dynamically -->
+        </ul>
+
+        <!-- Pagination Section -->
+        <div class="pagination">
+            <a href="#" id="prevPage" onclick="changePage(-1)">« Previous</a>
+            <a href="#" id="nextPage" onclick="changePage(1)">Next »</a>
+        </div>
+    </div>
+
+    <script>
+        const scifi = [
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+        { name: '', price: '', image: '' },
+               ];
+
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        // Function to display the sci-fi
+        function displaySciFi(page) {
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = page * itemsPerPage;
+            const docsToDisplay = scifi.slice(startIndex, endIndex);
+            const list = document.getElementById("novelList");
+
+            list.innerHTML = ''; // Clear existing list
+
+            docsToDisplay.forEach(doc => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <img src="${doc.image}" alt="${doc.name}">
+                    <div class="novel-info">
+                        <h3>${doc.name}</h3>
+                        <p class="price">${doc.price}</p>
+                        <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
+                    </div>
+                `;
+                listItem.querySelector('.add-to-cart').addEventListener('click', addToCart);
+                list.appendChild(listItem);
+            });
+
+            togglePagination();
+        }
+
+        // Function to handle previous and next page
+        function changePage(direction) {
+            currentPage += direction;
+            displaySciFi(currentPage);
+        }
+
+        // Function to toggle pagination buttons visibility
+        function togglePagination() {
+            const prevPageButton = document.getElementById("prevPage");
+            const nextPageButton = document.getElementById("nextPage");
+
+            prevPageButton.style.display = currentPage === 1 ? 'none' : 'inline';
+            nextPageButton.style.display = currentPage * itemsPerPage < scifi.length ? 'inline' : 'none';
+        }
+
+        // Function to handle search functionality
+        function searchSciFi() {
+            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            const filteredDocs = scifi.filter(doc => doc.name.toLowerCase().includes(searchQuery));
+            const list = document.getElementById("novelList");
+
+            list.innerHTML = ''; // Clear existing list
+
+            filteredDocs.forEach(doc => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <img src="${doc.image}" alt="${doc.name}">
+                    <div class="novel-info">
+                        <h3>${doc.name}</h3>
+                        <p class="price">${doc.price}</p>
+                        <button class="add-to-cart" data-name="${doc.name}" data-price="${doc.price}" data-image="${doc.image}">Add to Cart</button>
+                    </div>
+                `;
+                listItem.querySelector('.add-to-cart').addEventListener('click', addToCart);
+                list.appendChild(listItem);
+            });
+        }
+
+        // Function to handle the "Add to Cart" button click
+        function addToCart(event) {
+            const button = event.target;
+            const name = button.getAttribute('data-name');
+            const price = button.getAttribute('data-price');
+            const image = button.getAttribute('data-image');
+
+            // Retrieve the current cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the selected documentary to the cart
+            cart.push({ name, price, image });
+
+            // Store the updated cart back into localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Optionally, alert the user or show a notification
+            alert(`${name} has been added to your cart!`);
+        }
+
+        // Initialize the sci-fi list on page load
+        displaySciFi(currentPage);
+    </script>
+</body>
+</html>
