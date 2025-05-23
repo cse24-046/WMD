@@ -1,0 +1,147 @@
+:root {
+  --misty-beige: #f5f0e6;
+  --charcoal-gray: #333333;
+  --slate-teal: #468189;
+  --burnt-sienna: #ee6c4d;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--misty-beige);
+  color: var(--charcoal-gray);
+}
+
+header {
+  background-color: var(--slate-teal);
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+.logo-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.profile-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header span {
+  display: block;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+nav {
+  background-color: var(--burnt-sienna);
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 2em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search-container {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--misty-beige);
+}
+
+.search-container input {
+  padding: 0.5em;
+  width: 200px;
+  border: 1px solid var(--slate-teal);
+  border-radius: 5px;
+}
+
+.search-container button {
+  padding: 0.5em 1em;
+  background-color: var(--slate-teal);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  padding: 1em;
+  text-align: center;
+}
+
+main h2 {
+  color: var(--burnt-sienna);
+  margin-bottom: 1em;
+}
+
+/* Slideshow styling */
+.slideshow-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 1em;
+  height: 150px;
+  overflow: hidden;
+}
+
+.column-slideshow {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+}
+
+.column-slideshow .slide {
+  height: 150px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid var(--charcoal-gray);
+  padding: 1em;
+  display: none; /* JavaScript will toggle */
+}
+
+.column-slideshow .slide:first-child {
+  display: block; /* Show first slide by default */
+}
+
+footer {
+  background-color: var(--charcoal-gray);
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+footer .social-links a {
+  color: white;
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+footer button {
+  margin-top: 1em;
+  background-color: var(--burnt-sienna);
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

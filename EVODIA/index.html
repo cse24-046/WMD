@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EVODIA - Your Guide to the Art of Scent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-profile">
+      <img src="profile-icon.png" alt="Profile Logo" class="profile-logo">
+      <h1>EVODIA <span>Your guide to the art of scent</span></h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Men</a></li>
+      <li><a href="#">Women</a></li>
+      <li><a href="#">Neutral</a></li>
+    </ul>
+  </nav>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search perfumes...">
+    <button>Search</button>
+  </div>
+
+  <main>
+    <h2>Popular Perfumes</h2>
+    <div class="slideshow-container">
+      <div class="column-slideshow" id="col1">
+        <div class="slide">Perfume 1A</div>
+        <div class="slide">Perfume 1B</div>
+        <div class="slide">Perfume 1C</div>
+      </div>
+      <div class="column-slideshow" id="col2">
+        <div class="slide">Perfume 2A</div>
+        <div class="slide">Perfume 2B</div>
+        <div class="slide">Perfume 2C</div>
+      </div>
+      <div class="column-slideshow" id="col3">
+        <div class="slide">Perfume 3A</div>
+        <div class="slide">Perfume 3B</div>
+        <div class="slide">Perfume 3C</div>
+      </div>
+      <div class="column-slideshow" id="col4">
+        <div class="slide">Perfume 4A</div>
+        <div class="slide">Perfume 4B</div>
+        <div class="slide">Perfume 4C</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+    <button onclick="window.location.href='feedback.html'">Give Feedback</button>
+  </footer>
+
+  <script>
+    // JavaScript Vertical Slide Controller
+    function initVerticalSlides(columnId, delay = 3000) {
+      const column = document.getElementById(columnId);
+      const slides = column.children;
+      let currentIndex = 0;
+
+      for (let i = 1; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      setInterval(() => {
+        slides[currentIndex].style.display = "none";
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].style.display = "block";
+      }, delay);
+    }
+
+    // Initialize each column independently with staggered delays
+    document.addEventListener("DOMContentLoaded", () => {
+      initVerticalSlides("col1", 3000);
+      initVerticalSlides("col2", 4000);
+      initVerticalSlides("col3", 5000);
+      initVerticalSlides("col4", 6000);
+    });
+  </script>
+</body>
+</html>
