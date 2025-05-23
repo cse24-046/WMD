@@ -84,17 +84,60 @@ nav a {
   cursor: pointer;
 }
 
+/* Expanded main section */
 main {
-  padding: 1em;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
   text-align: center;
 }
 
-main h2 {
-  color: var(--burnt-sienna);
-  margin-bottom: 1em;
+main p {
+  max-width: 700px;
+  margin: 0 auto 2em;
+  font-size: 1.1em;
 }
 
-/* Slideshow styling */
+/* Categories Preview */
+.categories-preview {
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.category-card {
+  background-color: white;
+  padding: 1em;
+  border: 1px solid var(--slate-teal);
+  border-radius: 10px;
+  width: 30%;
+  min-width: 200px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Perfume */
+.featured {
+  margin-bottom: 2em;
+}
+
+.featured-box {
+  background-color: var(--misty-beige);
+  border-left: 6px solid var(--burnt-sienna);
+  padding: 1em;
+  margin: 1em auto;
+  max-width: 600px;
+  text-align: left;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* Slideshow Section */
+.slideshow-wrapper h2 {
+  margin-bottom: 0.5em;
+}
+
 .slideshow-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -102,6 +145,7 @@ main h2 {
   margin-top: 1em;
   height: 150px;
   overflow: hidden;
+  width: 100%;
 }
 
 .column-slideshow {
@@ -116,13 +160,14 @@ main h2 {
   background-color: white;
   border: 1px solid var(--charcoal-gray);
   padding: 1em;
-  display: none; /* JavaScript will toggle */
+  display: none;
 }
 
 .column-slideshow .slide:first-child {
-  display: block; /* Show first slide by default */
+  display: block;
 }
 
+/* Footer */
 footer {
   background-color: var(--charcoal-gray);
   color: white;
