@@ -1,60 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evodia Perfumes</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EVODIA - Discover Perfumes</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <header>
-    <div class="logo">Evodia</div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#brands">Brands</a></li>
-        <li><a href="#subscribe">Subscribe</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="header-left">
+      <a href="profile.html"><i class="fa-solid fa-user-circle"></i></a>
+    </div>
+    <div class="header-center">
+      <h1 class="logo">EVODIA</h1>
+    </div>
+    <div class="header-right">
+      <select id="themeSelect" title="Theme">
+        <option value="light">&#xf185; Light</option>
+        <option value="dark">&#xf186; Dark</option>
+      </select>
+      <select id="currencySelect" title="Currency">
+        <option value="BWP">BWP</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="ZAR">ZAR</option>
+      </select>
+    </div>
   </header>
 
+  <section class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search perfumes...">
+  </section>
+
   <main>
-    <section id="home">
-      <h1>Welcome to Evodia</h1>
-      <p>Discover the art of fragrance. Explore top, heart, and base notes from various perfume brands.</p>
-    </section>
-
-    <section id="brands">
-      <h2>Our Brands</h2>
-
-      <article class="perfume">
-        <h3>Brand A - Floral Essence</h3>
-        <p><strong>Top Notes:</strong> Bergamot, Lemon, Neroli</p>
-        <p><strong>Heart Notes:</strong> Rose, Jasmine, Ylang-Ylang</p>
-        <p class="base-notes"><strong>Base Notes:</strong> Musk, Sandalwood, Vanilla</p>
-        <p class="note">Base notes are only available during the 14-day free trial or with a subscription.</p>
-      </article>
-
-      <article class="perfume">
-        <h3>Brand B - Ocean Breeze</h3>
-        <p><strong>Top Notes:</strong> Mint, Sea Salt, Citrus</p>
-        <p><strong>Heart Notes:</strong> Lavender, Marine, Green Tea</p>
-        <p class="base-notes"><strong>Base Notes:</strong> Amber, Cedarwood, White Musk</p>
-        <p class="note">Base notes are only available during the 14-day free trial or with a subscription.</p>
-      </article>
-    </section>
-
-    <section id="subscribe">
-      <h2>Subscribe for Full Access</h2>
-      <p>After your 14-day free trial, subscribe to unlock full access to all base notes.</p>
-      <a href="#" class="subscribe-button">Subscribe Now</a>
-    </section>
+    <h2>Explore Brands</h2>
+    <div class="brand-grid">
+      <!-- 12 Brands -->
+      ${[...Array(12).keys()].map(i => `
+        <a href="brand${i+1}.html" class="brand-card">
+          <i class="fa-solid fa-wine-bottle fa-2x"></i>
+          <p>Brand ${i+1}</p>
+        </a>
+      `).join('')}
+    </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Evodia Perfumes. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <button onclick="location.href='feedback.html'" class="feedback-btn">Feedback</button>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
