@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brand 1 Perfumes - EVODIA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>Brand 1 Perfumes</h1></header>
+  <main class="perfume-grid">
+    <div class="perfume-card" onclick="showPerfumeNotes('BrandX #1')">
+      <img src="images/perfume1.png" alt="Perfume 1">
+      <p>BrandX #1</p>
+    </div>
+    <div class="perfume-card" onclick="showPerfumeNotes('BrandX #2')">
+      <img src="images/perfume2.png" alt="Perfume 2">
+      <p>BrandX #2</p>
+    </div>
+    <!-- Add more perfumes here -->
+  </main>
+
+  <div id="perfumeModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3 id="perfumeName">Perfume Name</h3>
+      <p><strong>Top Notes:</strong> Citrus, Bergamot</p>
+      <p><strong>Heart Notes:</strong> Jasmine, Iris</p>
+      <p><strong>Base Notes:</strong> <span id="baseNoteValue">Amber, Patchouli</span></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
